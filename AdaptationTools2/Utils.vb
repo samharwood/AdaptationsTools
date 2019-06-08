@@ -13,7 +13,6 @@
         Dim d As Integer
         Select Case name
             Case "Solid" : d = 1
-            Case "Mixed" : d = -2
             Case "Square Dot" : d = 2
             Case "Round Dot" : d = 3
             Case "Dash" : d = 4
@@ -25,15 +24,15 @@
             Case "Sys Dash" : d = 10
             Case "Sys Dot" : d = 11
             Case "Sys Dash Dot" : d = 12
+            Case "Mixed" : d = -2
         End Select
         LineDashStyleID = d
     End Function
 
     Public Function LineDashStyleName(id As Integer) As String
-        Dim s As Integer
+        Dim s As String
         Select Case id
             Case 1 : s = "Solid"
-            Case -2 : s = "Mixed"
             Case 2 : s = "Square Dot"
             Case 3 : s = "Round Dot"
             Case 4 : s = "Dash"
@@ -45,6 +44,7 @@
             Case 10 : s = "Sys Dash"
             Case 11 : s = "Sys Dot"
             Case 12 : s = "Sys Dash Dot"
+            Case -2 : s = "Mixed"
         End Select
         LineDashStyleName = s
     End Function

@@ -170,8 +170,23 @@ Public Class GraphMaker
             "Sys Dash Dot"
         }
 
-        MajorLineStyle.Items.AddRange(WordLineStyles)
-        MinorLineStyle.Items.AddRange(WordLineStyles)
+        Dim DashLineStyles() As String = {
+            "Solid",
+            "Square Dot",
+            "Round Dot",
+            "Dash",
+            "Dash Dot",
+            "Dash Dot Dot",
+            "Long Dash",
+            "Long Dash Dot",
+            "Long Dash Dot Dot",
+            "Sys Dash",
+            "Sys Dot",
+            "Sys Dash Dot"
+        }
+
+        MajorLineStyle.Items.AddRange(DashLineStyles)
+        MinorLineStyle.Items.AddRange(DashLineStyles)
     End Sub
 
     ' == UI Actions
@@ -386,10 +401,7 @@ er:
 
                 If MajorWeight.Text <= 0 Then .Format.Line.Visible = Office.MsoTriState.msoFalse Else _
                     .Format.Line.Weight = MajorWeight.Text * 2
-
-                'If MajorColour.BackColor < 0 Then .Format.Line.Visible = Office.MsoTriState.msoFalse Else _
                 .Format.Line.ForeColor = MajorColour.BackColor
-
                 .Format.Line.DashStyle = Word.WdLineStyle.wdLineStyleSingle
 
             End If
@@ -397,23 +409,14 @@ er:
             'Major
             If MajorWeight.Text <= 0 Then .MajorGridlines.Format.Line.Visible = False Else _
                 .MajorGridlines.Format.Line.Weight = MajorWeight.Text
-
-            'If MajorColour.BackColor < 0 Then .MajorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
             .MajorGridlines.Format.Line.ForeColor = MajorColour.BackColor
-
-            'If majorDash <> "Mixed" Then .MajorGridlines.Format.Line.DashStyle = LineDashStyleID(majorDash)
-            .MajorGridlines.Format.Line.DashStyle = MajorLineStyle.SelectedIndex
-
+            .MajorGridlines.Format.Line.DashStyle = MajorLineStyle.SelectedIndex + 1
 
             'Minor
             If MinorWeight.Text <= 0 Then .MinorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
                 .MinorGridlines.Format.Line.Weight = MinorWeight.Text
-
-            'If minorColour.BackColor < 0 Then .MinorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
             .MinorGridlines.Format.Line.ForeColor = MinorColour.BackColor
-
-            'If minorDash <> "Mixed" Then .MinorGridlines.Format.Line.DashStyle = LineDashStyleID(minorDash)
-            .MinorGridlines.Format.Line.DashStyle = MajorLineStyle.SelectedIndex
+            .MinorGridlines.Format.Line.DashStyle = MinorLineStyle.SelectedIndex + 1
 
         End With
 
@@ -874,7 +877,7 @@ er:
 
         shp.Line.Weight = MajorWeight.Text
         shp.Line.ForeColor.RGB = MajorColour.BackColor.ToArgb
-        shp.Line.DashStyle = MajorLineStyle.SelectedIndex
+        shp.Line.DashStyle = MajorLineStyle.SelectedIndex + 1
         shp.Line.BeginArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
         shp.Line.EndArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
         shp.ZOrder(Office.MsoZOrderCmd.msoBringToFront)
@@ -884,7 +887,7 @@ er:
 
         shp.Line.Weight = MinorWeight.Text
         shp.Line.ForeColor.RGB = MinorColour.BackColor.ToArgb
-        shp.Line.DashStyle = MinorLineStyle.SelectedIndex
+        shp.Line.DashStyle = MinorLineStyle.SelectedIndex + 1
         shp.Line.BeginArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
         shp.Line.EndArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
         shp.ZOrder(Office.MsoZOrderCmd.msoSendToBack)
