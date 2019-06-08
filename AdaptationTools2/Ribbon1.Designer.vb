@@ -42,15 +42,13 @@
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Group2 = Me.Factory.CreateRibbonGroup
-        Me.DropDown1 = Me.Factory.CreateRibbonDropDown
-        Me.Gallery1 = Me.Factory.CreateRibbonGallery
-        Me.Menu1 = Me.Factory.CreateRibbonMenu
         Me.AboutBtn = Me.Factory.CreateRibbonButton
         Me.HelpBtn = Me.Factory.CreateRibbonButton
         Me.Group4 = Me.Factory.CreateRibbonGroup
         Me.Group3 = Me.Factory.CreateRibbonGroup
         Me.GraphMakerBtn = Me.Factory.CreateRibbonButton
         Me.AdTab1 = Me.Factory.CreateRibbonTab
+        Me.ThickenLinesBtn = Me.Factory.CreateRibbonButton
         Me.Group2.SuspendLayout()
         Me.Group3.SuspendLayout()
         Me.AdTab1.SuspendLayout()
@@ -58,28 +56,10 @@
         '
         'Group2
         '
-        Me.Group2.Items.Add(Me.DropDown1)
-        Me.Group2.Items.Add(Me.Gallery1)
-        Me.Group2.Items.Add(Me.Menu1)
         Me.Group2.Items.Add(Me.AboutBtn)
         Me.Group2.Items.Add(Me.HelpBtn)
         Me.Group2.Label = "Info"
         Me.Group2.Name = "Group2"
-        '
-        'DropDown1
-        '
-        Me.DropDown1.Label = "DropDown1"
-        Me.DropDown1.Name = "DropDown1"
-        '
-        'Gallery1
-        '
-        Me.Gallery1.Label = "Gallery1"
-        Me.Gallery1.Name = "Gallery1"
-        '
-        'Menu1
-        '
-        Me.Menu1.Label = "Menu1"
-        Me.Menu1.Name = "Menu1"
         '
         'AboutBtn
         '
@@ -99,6 +79,7 @@
         'Group3
         '
         Me.Group3.Items.Add(Me.GraphMakerBtn)
+        Me.Group3.Items.Add(Me.ThickenLinesBtn)
         Me.Group3.Label = "Drawing Tools"
         Me.Group3.Name = "Group3"
         '
@@ -117,6 +98,12 @@
         Me.AdTab1.Label = "Adaptations"
         Me.AdTab1.Name = "AdTab1"
         '
+        'ThickenLinesBtn
+        '
+        Me.ThickenLinesBtn.Label = "Thicken Lines"
+        Me.ThickenLinesBtn.Name = "ThickenLinesBtn"
+        Me.ThickenLinesBtn.ShowImage = True
+        '
         'Ribbon1
         '
         Me.Name = "Ribbon1"
@@ -132,15 +119,13 @@
 
     End Sub
     Friend WithEvents Group2 As Microsoft.Office.Tools.Ribbon.RibbonGroup
-    Friend WithEvents DropDown1 As Microsoft.Office.Tools.Ribbon.RibbonDropDown
-    Friend WithEvents Gallery1 As Microsoft.Office.Tools.Ribbon.RibbonGallery
-    Friend WithEvents Menu1 As Microsoft.Office.Tools.Ribbon.RibbonMenu
     Friend WithEvents AboutBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents HelpBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Group4 As Microsoft.Office.Tools.Ribbon.RibbonGroup
     Friend WithEvents Group3 As Microsoft.Office.Tools.Ribbon.RibbonGroup
     Friend WithEvents GraphMakerBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents AdTab1 As Microsoft.Office.Tools.Ribbon.RibbonTab
+    Friend WithEvents ThickenLinesBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
 End Class
 
 Partial Class ThisRibbonCollection

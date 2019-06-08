@@ -8,8 +8,6 @@ Public Class GraphMaker
     ' .Redo Ticks
     ' .Plan different profiles
 
-    Const DBG As Boolean = True
-
     '500 ~= width of A4 document
     Const GM_GUTTER As Integer = 100
     Const GM_AXISHEAD As Integer = 30
@@ -20,7 +18,6 @@ Public Class GraphMaker
     Const x As Integer = 0
     Const Y As Integer = 1
 
-    Dim ActiveDocument As Word.Document
 
     Dim textHeight As Single
     Dim majorGrid As Single
@@ -251,8 +248,6 @@ Public Class GraphMaker
         objUndo.StartCustomRecord("Graph Maker")
 
         App.System.Cursor = Word.WdCursorType.wdCursorWait
-
-        ActiveDocument = App.ActiveDocument
 
         CalculateUnits()
 
@@ -505,6 +500,7 @@ er:
             a(i) = GroupAll(i + 1)
         Next i
 
+        If i = 0 Then Exit Sub 'No shapes to group!
         shpGroup = ActiveDocument.Shapes.Range(a).Group
         shpGroup.Name = "Graph X" & xFrom.Text & "," & xTo.Text _
                         & " Y" & yFrom.Text & "," & yTo.Text
@@ -904,7 +900,7 @@ er:
     Sub FormatMajorStyle(shp As Word.Shape)
 
         shp.Line.Weight = MajorWeight.Text
-        shp.Line.ForeColor.RGB = MajorColour.BackColor.ToArgb
+        shp.Line.ForeColor.RGB = RGB(MajorColour.BackColor.R, MajorColour.BackColor.G, MajorColour.BackColor.B)
         shp.Line.DashStyle = MajorLineStyle.SelectedIndex + 1
         shp.Line.BeginArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
         shp.Line.EndArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
@@ -914,7 +910,7 @@ er:
     Sub FormatMinorStyle(shp As Word.Shape)
 
         shp.Line.Weight = MinorWeight.Text
-        shp.Line.ForeColor.RGB = MinorColour.BackColor.ToArgb
+        shp.Line.ForeColor.RGB = RGB(MinorColour.BackColor.R, MinorColour.BackColor.G, MinorColour.BackColor.B)
         shp.Line.DashStyle = MinorLineStyle.SelectedIndex + 1
         shp.Line.BeginArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone
         shp.Line.EndArrowheadStyle = Office.MsoArrowheadStyle.msoArrowheadNone

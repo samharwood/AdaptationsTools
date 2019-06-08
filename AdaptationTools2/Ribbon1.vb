@@ -18,5 +18,7 @@ Public Class Ribbon1
         AB.Activate()
     End Sub
 
-
+    Private Sub ThickenLinesBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles ThickenLinesBtn.Click
+        ThickenLines()
+    End Sub
 End Class
