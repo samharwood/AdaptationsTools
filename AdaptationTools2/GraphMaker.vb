@@ -75,6 +75,11 @@ Public Class GraphMaker
         xDivs.Text = SavedCtls.Default.xDivs
         yDivs.Text = SavedCtls.Default.yDivs
 
+        'TODO How to save Radio groups?
+        'Dim r As Windows.Forms.RadioButton
+        'r = Controls.Item(Controls.IndexOfKey(SavedCtls.Default.PlotAs.ToString))
+        'r.Checked = True
+
 
 
     End Sub
@@ -154,7 +159,20 @@ Public Class GraphMaker
             "Inset"
         }
 
+        Dim ChartLineStyles() As String = {
+            "Solid",
+            "Square Dot",
+            "Round Dot",
+            "Long Dash",
+            "Long Dash Dot",
+            "Long Dash Dot Dot",
+            "Sys Dash",
+            "Sys Dot",
+            "Sys Dash Dot"
+        }
+
         MajorLineStyle.Items.AddRange(WordLineStyles)
+        MinorLineStyle.Items.AddRange(WordLineStyles)
     End Sub
 
 
@@ -218,8 +236,8 @@ Public Class GraphMaker
 
         ' === Plot Graph
 
-        ' If PlotAsChart Then PlotChart() Else  PlotShapes()
-        If PlotAsChart.Checked Then MsgBox("PlotAsChart()") Else MsgBox("PlotAsShapes()")
+        If PlotAsChart.Checked Then PlotChart() Else MsgBox("PlotShapes()")
+        'If PlotAsChart.Checked Then MsgBox("PlotAsChart()") Else MsgBox("PlotAsShapes()")
 
         objUndo.EndCustomRecord()
         App.System.Cursor = Word.WdCursorType.wdCursorNormal
@@ -380,7 +398,7 @@ er:
         End Select
     End Sub
 
-    Sub FormatChartLines(c As Excel.Chart, v As Excel.XlAxisType)
+    Sub FormatChartLines(c As Word.Chart, v As Excel.XlAxisType)
 
         'Dim a As Axis 'for Debugging
 
@@ -391,8 +409,8 @@ er:
                 If MajorWeight.Text <= 0 Then .Format.Line.Visible = Office.MsoTriState.msoFalse Else _
                     .Format.Line.Weight = MajorWeight.Text * 2
 
-                If MajorColour.BackColor < 0 Then .Format.Line.Visible = Office.MsoTriState.msoFalse Else _
-                    .Format.Line.ForeColor = MajorColour.BackColor
+                'If MajorColour.BackColor < 0 Then .Format.Line.Visible = Office.MsoTriState.msoFalse Else _
+                .Format.Line.ForeColor = MajorColour.BackColor
 
                 .Format.Line.DashStyle = Word.WdLineStyle.wdLineStyleSingle
 
@@ -400,26 +418,32 @@ er:
 
             'Major
             If MajorWeight.Text <= 0 Then .MajorGridlines.Format.Line.Visible = False Else _
-                .MajorGridlines.Format.Line.Weight = MajorWeight
+                .MajorGridlines.Format.Line.Weight = MajorWeight.Text
 
-            If MajorColour.BackColor < 0 Then .MajorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
-                .MajorGridlines.Format.Line.ForeColor = MajorColour.BackColor
+            'If MajorColour.BackColor < 0 Then .MajorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
+            .MajorGridlines.Format.Line.ForeColor = MajorColour.BackColor
 
-            If majorDash <> "Mixed" Then _
-                .MajorGridlines.Format.Line.DashStyle = LineDashStyleID(majorDash)
+            'If majorDash <> "Mixed" Then .MajorGridlines.Format.Line.DashStyle = LineDashStyleID(majorDash)
+            .MajorGridlines.Format.Line.DashStyle = MajorLineStyle.SelectedIndex
 
 
             'Minor
-            If minorWeight.Text <= 0 Then .MinorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
-                .MinorGridlines.Format.Line.Weight = minorWeight.Text
+            If MinorWeight.Text <= 0 Then .MinorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
+                .MinorGridlines.Format.Line.Weight = MinorWeight.Text
 
-            If minorColour.BackColor < 0 Then .MinorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
-                .MinorGridlines.Format.Line.ForeColor = minorColour.BackColor
+            'If minorColour.BackColor < 0 Then .MinorGridlines.Format.Line.Visible = Office.MsoTriState.msoFalse Else _
+            .MinorGridlines.Format.Line.ForeColor = MinorColour.BackColor
 
-            If minorDash <> "Mixed" Then _
-                .MinorGridlines.Format.Line.DashStyle = LineDashStyleID(minorDash)
+            'If minorDash <> "Mixed" Then .MinorGridlines.Format.Line.DashStyle = LineDashStyleID(minorDash)
+            .MinorGridlines.Format.Line.DashStyle = MajorLineStyle.SelectedIndex
 
         End With
+
+    End Sub
+
+    Private Sub PlotAs_CheckedChanged(sender As Object, e As EventArgs) Handles PlotAsChart.Validated, PlotAsShapes.Validated
+        'TODO
+        SavedCtls.Default.PropertyValues.Item("PlotAs").PropertyValue = sender.Name
 
     End Sub
 End Class

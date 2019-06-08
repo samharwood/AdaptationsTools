@@ -100,13 +100,13 @@ Partial Friend NotInheritable Class SavedCtls
     
     <Global.System.Configuration.UserScopedSettingAttribute(),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-    Public Property PlotAs() As String
+     Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+    Public Property PlotAsChart() As Boolean
         Get
-            Return CType(Me("PlotAs"),String)
+            Return CType(Me("PlotAsChart"),Boolean)
         End Get
         Set
-            Me("PlotAs") = value
+            Me("PlotAsChart") = value
         End Set
     End Property
     
@@ -172,7 +172,7 @@ Partial Friend NotInheritable Class SavedCtls
     
     <Global.System.Configuration.UserScopedSettingAttribute(),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("wdLineStyleDashSmallGap")>  _
+     Global.System.Configuration.DefaultSettingValueAttribute("wdLineStyleDashLargeGap")>  _
     Public Property MinorLineStyle() As Global.Microsoft.Office.Interop.Word.WdLineStyle
         Get
             Return CType(Me("MinorLineStyle"),Global.Microsoft.Office.Interop.Word.WdLineStyle)
@@ -203,6 +203,30 @@ Partial Friend NotInheritable Class SavedCtls
         End Get
         Set
             Me("MinorWeight") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+    Public Property PlotAsShapes() As Boolean
+        Get
+            Return CType(Me("PlotAsShapes"),Boolean)
+        End Get
+        Set
+            Me("PlotAsShapes") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("PlotAsShapes")>  _
+    Public Property PlotAs() As String
+        Get
+            Return CType(Me("PlotAs"),String)
+        End Get
+        Set
+            Me("PlotAs") = value
         End Set
     End Property
 End Class
