@@ -75,12 +75,12 @@ Public Class GraphMaker
         xDivs.Text = SavedCtls.Default.xDivs
         yDivs.Text = SavedCtls.Default.yDivs
 
-        'TODO How to save Radio groups?
-        'Dim r As Windows.Forms.RadioButton
-        'r = Controls.Item(Controls.IndexOfKey(SavedCtls.Default.PlotAs.ToString))
-        'r.Checked = True
+        Dim r As Windows.Forms.RadioButton
+        r = GrpPlotAs.Controls.Item(SavedCtls.Default.PlotAs)
+        r.Checked = True
 
-
+        r = GrpNumbering.Controls.Item(SavedCtls.Default.Numbering)
+        r.Checked = True
 
     End Sub
 
@@ -441,9 +441,12 @@ er:
 
     End Sub
 
-    Private Sub PlotAs_CheckedChanged(sender As Object, e As EventArgs) Handles PlotAsChart.Validated, PlotAsShapes.Validated
-        'TODO
+    Private Sub PlotAs_Validated(sender As Object, e As EventArgs) Handles PlotAsChart.Validated, PlotAsShapes.Validated
         SavedCtls.Default.PropertyValues.Item("PlotAs").PropertyValue = sender.Name
-
     End Sub
+
+    Private Sub Numbering_Validated(sender As Object, e As EventArgs) Handles NumUEB.Validated, NumStandard.Validated, NumNone.Validated
+        SavedCtls.Default.PropertyValues.Item("Numbering").PropertyValue = sender.Name
+    End Sub
+
 End Class

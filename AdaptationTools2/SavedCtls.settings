@@ -53,5 +53,8 @@
     <Setting Name="PlotAs" Type="System.String" Scope="User">
       <Value Profile="(Default)">PlotAsShapes</Value>
     </Setting>
+    <Setting Name="Numbering" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NumStandard</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

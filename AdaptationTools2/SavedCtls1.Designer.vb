@@ -229,4 +229,16 @@ Partial Friend NotInheritable Class SavedCtls
             Me("PlotAs") = value
         End Set
     End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("NumStandard")>  _
+    Public Property Numbering() As String
+        Get
+            Return CType(Me("Numbering"),String)
+        End Get
+        Set
+            Me("Numbering") = value
+        End Set
+    End Property
 End Class
