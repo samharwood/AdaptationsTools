@@ -24,7 +24,7 @@
     <ProjectGuid>{0F0DE655-50F8-4A0F-9630-95F97E1133B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>AdaptationTools2</RootNamespace>
-    <AssemblyName>AdaptationTools2</AssemblyName>
+    <AssemblyName>AdaptationsTools</AssemblyName>
     <LoadBehavior>3</LoadBehavior>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
@@ -74,7 +74,7 @@
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>AdaptationTools2.xml</DocumentationFile>
+    <DocumentationFile>AdaptationsTools.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -103,7 +103,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>AdaptationTools2.xml</DocumentationFile>
+    <DocumentationFile>AdaptationsTools.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -113,6 +113,9 @@
   -->
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -159,6 +162,7 @@
   </ItemGroup>
   <!-- Visual Basic supports importing namespaces (equivalent to "using" statements in C#). -->
   <ItemGroup>
+    <Import Include="Excel = Microsoft.Office.Interop.Excel" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections.Generic" />
@@ -218,7 +222,6 @@
     <EmbeddedResource Include="GraphMaker.resx">
       <DependentUpon>GraphMaker.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="AdaptationTools2_TemporaryKey.pfx" />
     <None Include="app.config" />
     <None Include="SavedCtls.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

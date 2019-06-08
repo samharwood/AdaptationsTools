@@ -34,10 +34,10 @@ Partial Class GraphMaker
         Me.Label3 = New System.Windows.Forms.Label()
         Me.MajorWeight = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Axis = New System.Windows.Forms.CheckBox()
+        Me.Axes = New System.Windows.Forms.CheckBox()
         Me.AxisLabels = New System.Windows.Forms.CheckBox()
         Me.NumStandard = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GrpNumbering = New System.Windows.Forms.GroupBox()
         Me.NumNone = New System.Windows.Forms.RadioButton()
         Me.NumUEB = New System.Windows.Forms.RadioButton()
         Me.MajorLineStyle = New System.Windows.Forms.ComboBox()
@@ -47,7 +47,7 @@ Partial Class GraphMaker
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.Ticks = New System.Windows.Forms.CheckBox()
-        Me.PlotAs = New System.Windows.Forms.GroupBox()
+        Me.GrpPlotAs = New System.Windows.Forms.GroupBox()
         Me.PlotAsChart = New System.Windows.Forms.RadioButton()
         Me.PlotAsShapes = New System.Windows.Forms.RadioButton()
         Me.yDivs = New System.Windows.Forms.TextBox()
@@ -58,8 +58,13 @@ Partial Class GraphMaker
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.yNumEvery = New System.Windows.Forms.TextBox()
-        Me.GroupBox1.SuspendLayout()
-        Me.PlotAs.SuspendLayout()
+        Me.CopyMinorStyle = New System.Windows.Forms.Button()
+        Me.MinorLineStyle = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.MinorWeight = New System.Windows.Forms.TextBox()
+        Me.MinorColour = New System.Windows.Forms.Label()
+        Me.GrpNumbering.SuspendLayout()
+        Me.GrpPlotAs.SuspendLayout()
         Me.SuspendLayout()
         '
         'ColorDialog1
@@ -70,7 +75,7 @@ Partial Class GraphMaker
         '
         Me.MajorColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.MajorColour.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MajorColour.Location = New System.Drawing.Point(354, 353)
+        Me.MajorColour.Location = New System.Drawing.Point(349, 315)
         Me.MajorColour.Name = "MajorColour"
         Me.MajorColour.Size = New System.Drawing.Size(30, 20)
         Me.MajorColour.TabIndex = 0
@@ -125,7 +130,7 @@ Partial Class GraphMaker
         '
         'MajorWeight
         '
-        Me.MajorWeight.Location = New System.Drawing.Point(187, 354)
+        Me.MajorWeight.Location = New System.Drawing.Point(182, 316)
         Me.MajorWeight.Name = "MajorWeight"
         Me.MajorWeight.Size = New System.Drawing.Size(34, 20)
         Me.MajorWeight.TabIndex = 9
@@ -133,21 +138,21 @@ Partial Class GraphMaker
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(18, 357)
+        Me.Label4.Location = New System.Drawing.Point(13, 319)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Major Style"
         '
-        'Axis
+        'Axes
         '
-        Me.Axis.AutoSize = True
-        Me.Axis.Location = New System.Drawing.Point(432, 65)
-        Me.Axis.Name = "Axis"
-        Me.Axis.Size = New System.Drawing.Size(45, 17)
-        Me.Axis.TabIndex = 11
-        Me.Axis.Text = "Axis"
-        Me.Axis.UseVisualStyleBackColor = True
+        Me.Axes.AutoSize = True
+        Me.Axes.Location = New System.Drawing.Point(432, 65)
+        Me.Axes.Name = "Axes"
+        Me.Axes.Size = New System.Drawing.Size(49, 17)
+        Me.Axes.TabIndex = 11
+        Me.Axes.Text = "Axes"
+        Me.Axes.UseVisualStyleBackColor = True
         '
         'AxisLabels
         '
@@ -171,17 +176,17 @@ Partial Class GraphMaker
         Me.NumStandard.Text = "Standard"
         Me.NumStandard.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'GrpNumbering
         '
-        Me.GroupBox1.Controls.Add(Me.NumNone)
-        Me.GroupBox1.Controls.Add(Me.NumUEB)
-        Me.GroupBox1.Controls.Add(Me.NumStandard)
-        Me.GroupBox1.Location = New System.Drawing.Point(536, 65)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(89, 92)
-        Me.GroupBox1.TabIndex = 16
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Numbering"
+        Me.GrpNumbering.Controls.Add(Me.NumNone)
+        Me.GrpNumbering.Controls.Add(Me.NumUEB)
+        Me.GrpNumbering.Controls.Add(Me.NumStandard)
+        Me.GrpNumbering.Location = New System.Drawing.Point(536, 65)
+        Me.GrpNumbering.Name = "GrpNumbering"
+        Me.GrpNumbering.Size = New System.Drawing.Size(89, 92)
+        Me.GrpNumbering.TabIndex = 16
+        Me.GrpNumbering.TabStop = False
+        Me.GrpNumbering.Text = "Numbering"
         '
         'NumNone
         '
@@ -206,7 +211,7 @@ Partial Class GraphMaker
         'MajorLineStyle
         '
         Me.MajorLineStyle.DropDownWidth = 200
-        Me.MajorLineStyle.Location = New System.Drawing.Point(227, 353)
+        Me.MajorLineStyle.Location = New System.Drawing.Point(222, 315)
         Me.MajorLineStyle.Name = "MajorLineStyle"
         Me.MajorLineStyle.Size = New System.Drawing.Size(121, 21)
         Me.MajorLineStyle.TabIndex = 17
@@ -220,7 +225,7 @@ Partial Class GraphMaker
         '
         'CopyMajorStyle
         '
-        Me.CopyMajorStyle.Location = New System.Drawing.Point(83, 347)
+        Me.CopyMajorStyle.Location = New System.Drawing.Point(78, 309)
         Me.CopyMajorStyle.Name = "CopyMajorStyle"
         Me.CopyMajorStyle.Size = New System.Drawing.Size(98, 37)
         Me.CopyMajorStyle.TabIndex = 18
@@ -264,16 +269,16 @@ Partial Class GraphMaker
         Me.Ticks.Text = "Ticks"
         Me.Ticks.UseVisualStyleBackColor = True
         '
-        'PlotAs
+        'GrpPlotAs
         '
-        Me.PlotAs.Controls.Add(Me.PlotAsChart)
-        Me.PlotAs.Controls.Add(Me.PlotAsShapes)
-        Me.PlotAs.Location = New System.Drawing.Point(690, 315)
-        Me.PlotAs.Name = "PlotAs"
-        Me.PlotAs.Size = New System.Drawing.Size(89, 69)
-        Me.PlotAs.TabIndex = 18
-        Me.PlotAs.TabStop = False
-        Me.PlotAs.Text = "Plot as"
+        Me.GrpPlotAs.Controls.Add(Me.PlotAsChart)
+        Me.GrpPlotAs.Controls.Add(Me.PlotAsShapes)
+        Me.GrpPlotAs.Location = New System.Drawing.Point(690, 315)
+        Me.GrpPlotAs.Name = "GrpPlotAs"
+        Me.GrpPlotAs.Size = New System.Drawing.Size(89, 69)
+        Me.GrpPlotAs.TabIndex = 18
+        Me.GrpPlotAs.TabStop = False
+        Me.GrpPlotAs.Text = "Plot as"
         '
         'PlotAsChart
         '
@@ -361,11 +366,58 @@ Partial Class GraphMaker
         Me.yNumEvery.Size = New System.Drawing.Size(34, 20)
         Me.yNumEvery.TabIndex = 26
         '
-        'UIGraphMaker
+        'CopyMinorStyle
+        '
+        Me.CopyMinorStyle.Location = New System.Drawing.Point(78, 357)
+        Me.CopyMinorStyle.Name = "CopyMinorStyle"
+        Me.CopyMinorStyle.Size = New System.Drawing.Size(98, 37)
+        Me.CopyMinorStyle.TabIndex = 34
+        Me.CopyMinorStyle.Text = "Copy from selected shape"
+        Me.CopyMinorStyle.UseVisualStyleBackColor = True
+        '
+        'MinorLineStyle
+        '
+        Me.MinorLineStyle.DropDownWidth = 200
+        Me.MinorLineStyle.Location = New System.Drawing.Point(222, 363)
+        Me.MinorLineStyle.Name = "MinorLineStyle"
+        Me.MinorLineStyle.Size = New System.Drawing.Size(121, 21)
+        Me.MinorLineStyle.TabIndex = 33
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(13, 367)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(59, 13)
+        Me.Label9.TabIndex = 32
+        Me.Label9.Text = "Minor Style"
+        '
+        'MinorWeight
+        '
+        Me.MinorWeight.Location = New System.Drawing.Point(182, 364)
+        Me.MinorWeight.Name = "MinorWeight"
+        Me.MinorWeight.Size = New System.Drawing.Size(34, 20)
+        Me.MinorWeight.TabIndex = 31
+        '
+        'MinorColour
+        '
+        Me.MinorColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MinorColour.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MinorColour.Location = New System.Drawing.Point(349, 363)
+        Me.MinorColour.Name = "MinorColour"
+        Me.MinorColour.Size = New System.Drawing.Size(30, 20)
+        Me.MinorColour.TabIndex = 30
+        '
+        'GraphMaker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.CopyMinorStyle)
+        Me.Controls.Add(Me.MinorLineStyle)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.MinorWeight)
+        Me.Controls.Add(Me.MinorColour)
         Me.Controls.Add(Me.xNumEvery)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label8)
@@ -374,15 +426,15 @@ Partial Class GraphMaker
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.yDivs)
-        Me.Controls.Add(Me.PlotAs)
+        Me.Controls.Add(Me.GrpPlotAs)
         Me.Controls.Add(Me.Ticks)
         Me.Controls.Add(Me.btnCreate)
         Me.Controls.Add(Me.SaveToDocChk)
         Me.Controls.Add(Me.CopyMajorStyle)
         Me.Controls.Add(Me.MajorLineStyle)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GrpNumbering)
         Me.Controls.Add(Me.AxisLabels)
-        Me.Controls.Add(Me.Axis)
+        Me.Controls.Add(Me.Axes)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.MajorWeight)
         Me.Controls.Add(Me.Label3)
@@ -395,13 +447,13 @@ Partial Class GraphMaker
         Me.Controls.Add(Me.MajorColour)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "UIGraphMaker"
+        Me.Name = "GraphMaker"
         Me.ShowIcon = False
         Me.Text = "Graph Maker"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.PlotAs.ResumeLayout(False)
-        Me.PlotAs.PerformLayout()
+        Me.GrpNumbering.ResumeLayout(False)
+        Me.GrpNumbering.PerformLayout()
+        Me.GrpPlotAs.ResumeLayout(False)
+        Me.GrpPlotAs.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -418,10 +470,10 @@ Partial Class GraphMaker
     Friend WithEvents Label3 As Windows.Forms.Label
     Friend WithEvents MajorWeight As Windows.Forms.TextBox
     Friend WithEvents Label4 As Windows.Forms.Label
-    Friend WithEvents Axis As Windows.Forms.CheckBox
+    Friend WithEvents Axes As Windows.Forms.CheckBox
     Friend WithEvents AxisLabels As Windows.Forms.CheckBox
     Friend WithEvents NumStandard As Windows.Forms.RadioButton
-    Friend WithEvents GroupBox1 As Windows.Forms.GroupBox
+    Friend WithEvents GrpNumbering As Windows.Forms.GroupBox
     Friend WithEvents NumNone As Windows.Forms.RadioButton
     Friend WithEvents NumUEB As Windows.Forms.RadioButton
     Friend WithEvents MajorLineStyle As Windows.Forms.ComboBox
@@ -430,7 +482,7 @@ Partial Class GraphMaker
     Friend WithEvents ToolTip1 As Windows.Forms.ToolTip
     Friend WithEvents btnCreate As Windows.Forms.Button
     Friend WithEvents Ticks As Windows.Forms.CheckBox
-    Friend WithEvents PlotAs As Windows.Forms.GroupBox
+    Friend WithEvents GrpPlotAs As Windows.Forms.GroupBox
     Friend WithEvents PlotAsChart As Windows.Forms.RadioButton
     Friend WithEvents PlotAsShapes As Windows.Forms.RadioButton
     Friend WithEvents yDivs As Windows.Forms.TextBox
@@ -441,4 +493,9 @@ Partial Class GraphMaker
     Friend WithEvents Label7 As Windows.Forms.Label
     Friend WithEvents Label8 As Windows.Forms.Label
     Friend WithEvents yNumEvery As Windows.Forms.TextBox
+    Friend WithEvents CopyMinorStyle As Windows.Forms.Button
+    Friend WithEvents MinorLineStyle As Windows.Forms.ComboBox
+    Friend WithEvents Label9 As Windows.Forms.Label
+    Friend WithEvents MinorWeight As Windows.Forms.TextBox
+    Friend WithEvents MinorColour As Windows.Forms.Label
 End Class

@@ -8,7 +8,7 @@
     <Setting Name="xTo" Type="System.Single" Scope="User">
       <Value Profile="(Default)">6</Value>
     </Setting>
-    <Setting Name="majorColour" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="MajorColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="yFrom" Type="System.Single" Scope="User">
@@ -22,6 +22,30 @@
     </Setting>
     <Setting Name="PlotAs" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="xNumEvery" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="yNumEvery" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="xDivs" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="yDivs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="MinorColour" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Silver</Value>
+    </Setting>
+    <Setting Name="MinorLineStyle" Type="Microsoft.Office.Interop.Word.WdLineStyle" Scope="User">
+      <Value Profile="(Default)">wdLineStyleDashSmallGap</Value>
+    </Setting>
+    <Setting Name="MajorWeight" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="MinorWeight" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">2</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -53,12 +53,12 @@ Partial Friend NotInheritable Class SavedCtls
     <Global.System.Configuration.UserScopedSettingAttribute(),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Configuration.DefaultSettingValueAttribute("Black")>  _
-    Public Property majorColour() As Global.System.Drawing.Color
+    Public Property MajorColour() As Global.System.Drawing.Color
         Get
-            Return CType(Me("majorColour"),Global.System.Drawing.Color)
+            Return CType(Me("MajorColour"),Global.System.Drawing.Color)
         End Get
         Set
-            Me("majorColour") = value
+            Me("MajorColour") = value
         End Set
     End Property
     
@@ -107,6 +107,102 @@ Partial Friend NotInheritable Class SavedCtls
         End Get
         Set
             Me("PlotAs") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+    Public Property xNumEvery() As Single
+        Get
+            Return CType(Me("xNumEvery"),Single)
+        End Get
+        Set
+            Me("xNumEvery") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+    Public Property yNumEvery() As String
+        Get
+            Return CType(Me("yNumEvery"),String)
+        End Get
+        Set
+            Me("yNumEvery") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+    Public Property xDivs() As Single
+        Get
+            Return CType(Me("xDivs"),Single)
+        End Get
+        Set
+            Me("xDivs") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
+    Public Property yDivs() As String
+        Get
+            Return CType(Me("yDivs"),String)
+        End Get
+        Set
+            Me("yDivs") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("Silver")>  _
+    Public Property MinorColour() As Global.System.Drawing.Color
+        Get
+            Return CType(Me("MinorColour"),Global.System.Drawing.Color)
+        End Get
+        Set
+            Me("MinorColour") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("wdLineStyleDashSmallGap")>  _
+    Public Property MinorLineStyle() As Global.Microsoft.Office.Interop.Word.WdLineStyle
+        Get
+            Return CType(Me("MinorLineStyle"),Global.Microsoft.Office.Interop.Word.WdLineStyle)
+        End Get
+        Set
+            Me("MinorLineStyle") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
+    Public Property MajorWeight() As Single
+        Get
+            Return CType(Me("MajorWeight"),Single)
+        End Get
+        Set
+            Me("MajorWeight") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+    Public Property MinorWeight() As Single
+        Get
+            Return CType(Me("MinorWeight"),Single)
+        End Get
+        Set
+            Me("MinorWeight") = value
         End Set
     End Property
 End Class
