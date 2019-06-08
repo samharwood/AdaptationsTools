@@ -73,28 +73,28 @@ Partial Class GraphMaker
         '
         Me.MajorColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.MajorColour.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MajorColour.Location = New System.Drawing.Point(242, 315)
+        Me.MajorColour.Location = New System.Drawing.Point(243, 182)
         Me.MajorColour.Name = "MajorColour"
         Me.MajorColour.Size = New System.Drawing.Size(30, 20)
         Me.MajorColour.TabIndex = 0
         '
         'xTo
         '
-        Me.xTo.Location = New System.Drawing.Point(257, 73)
+        Me.xTo.Location = New System.Drawing.Point(151, 48)
         Me.xTo.Name = "xTo"
         Me.xTo.Size = New System.Drawing.Size(34, 20)
         Me.xTo.TabIndex = 1
         '
         'yFrom
         '
-        Me.yFrom.Location = New System.Drawing.Point(222, 99)
+        Me.yFrom.Location = New System.Drawing.Point(116, 74)
         Me.yFrom.Name = "yFrom"
         Me.yFrom.Size = New System.Drawing.Size(34, 20)
         Me.yFrom.TabIndex = 2
         '
         'yTo
         '
-        Me.yTo.Location = New System.Drawing.Point(222, 47)
+        Me.yTo.Location = New System.Drawing.Point(116, 22)
         Me.yTo.Name = "yTo"
         Me.yTo.Size = New System.Drawing.Size(34, 20)
         Me.yTo.TabIndex = 3
@@ -102,7 +102,7 @@ Partial Class GraphMaker
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(144, 76)
+        Me.Label1.Location = New System.Drawing.Point(38, 51)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(37, 13)
         Me.Label1.TabIndex = 6
@@ -111,7 +111,7 @@ Partial Class GraphMaker
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(231, 76)
+        Me.Label2.Location = New System.Drawing.Point(125, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(16, 13)
         Me.Label2.TabIndex = 7
@@ -120,7 +120,7 @@ Partial Class GraphMaker
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(179, 102)
+        Me.Label3.Location = New System.Drawing.Point(73, 77)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 8
@@ -128,7 +128,7 @@ Partial Class GraphMaker
         '
         'MajorWeight
         '
-        Me.MajorWeight.Location = New System.Drawing.Point(75, 316)
+        Me.MajorWeight.Location = New System.Drawing.Point(76, 183)
         Me.MajorWeight.Name = "MajorWeight"
         Me.MajorWeight.Size = New System.Drawing.Size(34, 20)
         Me.MajorWeight.TabIndex = 9
@@ -136,7 +136,7 @@ Partial Class GraphMaker
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 319)
+        Me.Label4.Location = New System.Drawing.Point(13, 186)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 10
@@ -145,7 +145,7 @@ Partial Class GraphMaker
         'Axes
         '
         Me.Axes.AutoSize = True
-        Me.Axes.Location = New System.Drawing.Point(432, 65)
+        Me.Axes.Location = New System.Drawing.Point(206, 27)
         Me.Axes.Name = "Axes"
         Me.Axes.Size = New System.Drawing.Size(49, 17)
         Me.Axes.TabIndex = 11
@@ -155,7 +155,7 @@ Partial Class GraphMaker
         'AxisLabels
         '
         Me.AxisLabels.AutoSize = True
-        Me.AxisLabels.Location = New System.Drawing.Point(432, 88)
+        Me.AxisLabels.Location = New System.Drawing.Point(206, 50)
         Me.AxisLabels.Name = "AxisLabels"
         Me.AxisLabels.Size = New System.Drawing.Size(79, 17)
         Me.AxisLabels.TabIndex = 12
@@ -179,7 +179,7 @@ Partial Class GraphMaker
         Me.GrpNumbering.Controls.Add(Me.NumNone)
         Me.GrpNumbering.Controls.Add(Me.NumUEB)
         Me.GrpNumbering.Controls.Add(Me.NumStandard)
-        Me.GrpNumbering.Location = New System.Drawing.Point(536, 65)
+        Me.GrpNumbering.Location = New System.Drawing.Point(306, 12)
         Me.GrpNumbering.Name = "GrpNumbering"
         Me.GrpNumbering.Size = New System.Drawing.Size(89, 92)
         Me.GrpNumbering.TabIndex = 16
@@ -209,14 +209,14 @@ Partial Class GraphMaker
         'MajorLineStyle
         '
         Me.MajorLineStyle.DropDownWidth = 200
-        Me.MajorLineStyle.Location = New System.Drawing.Point(115, 315)
+        Me.MajorLineStyle.Location = New System.Drawing.Point(116, 182)
         Me.MajorLineStyle.Name = "MajorLineStyle"
         Me.MajorLineStyle.Size = New System.Drawing.Size(121, 21)
         Me.MajorLineStyle.TabIndex = 17
         '
         'xFrom
         '
-        Me.xFrom.Location = New System.Drawing.Point(187, 73)
+        Me.xFrom.Location = New System.Drawing.Point(81, 48)
         Me.xFrom.Name = "xFrom"
         Me.xFrom.Size = New System.Drawing.Size(34, 20)
         Me.xFrom.TabIndex = 0
@@ -225,7 +225,7 @@ Partial Class GraphMaker
         '
         Me.SaveToDocChk.AccessibleDescription = ""
         Me.SaveToDocChk.AutoSize = True
-        Me.SaveToDocChk.Location = New System.Drawing.Point(12, 421)
+        Me.SaveToDocChk.Location = New System.Drawing.Point(12, 248)
         Me.SaveToDocChk.Name = "SaveToDocChk"
         Me.SaveToDocChk.Size = New System.Drawing.Size(187, 17)
         Me.SaveToDocChk.TabIndex = 19
@@ -241,7 +241,7 @@ Partial Class GraphMaker
         '
         'btnCreate
         '
-        Me.btnCreate.Location = New System.Drawing.Point(690, 401)
+        Me.btnCreate.Location = New System.Drawing.Point(306, 196)
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.Size = New System.Drawing.Size(98, 37)
         Me.btnCreate.TabIndex = 20
@@ -251,7 +251,7 @@ Partial Class GraphMaker
         'Ticks
         '
         Me.Ticks.AutoSize = True
-        Me.Ticks.Location = New System.Drawing.Point(432, 111)
+        Me.Ticks.Location = New System.Drawing.Point(206, 73)
         Me.Ticks.Name = "Ticks"
         Me.Ticks.Size = New System.Drawing.Size(52, 17)
         Me.Ticks.TabIndex = 21
@@ -262,7 +262,7 @@ Partial Class GraphMaker
         '
         Me.GrpPlotAs.Controls.Add(Me.PlotAsChart)
         Me.GrpPlotAs.Controls.Add(Me.PlotAsShapes)
-        Me.GrpPlotAs.Location = New System.Drawing.Point(690, 315)
+        Me.GrpPlotAs.Location = New System.Drawing.Point(306, 110)
         Me.GrpPlotAs.Name = "GrpPlotAs"
         Me.GrpPlotAs.Size = New System.Drawing.Size(89, 69)
         Me.GrpPlotAs.TabIndex = 18
@@ -293,7 +293,7 @@ Partial Class GraphMaker
         '
         'yDivs
         '
-        Me.yDivs.Location = New System.Drawing.Point(262, 199)
+        Me.yDivs.Location = New System.Drawing.Point(250, 145)
         Me.yDivs.Name = "yDivs"
         Me.yDivs.Size = New System.Drawing.Size(34, 20)
         Me.yDivs.TabIndex = 22
@@ -301,7 +301,7 @@ Partial Class GraphMaker
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(168, 202)
+        Me.Label5.Location = New System.Drawing.Point(156, 148)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(88, 13)
         Me.Label5.TabIndex = 23
@@ -310,7 +310,7 @@ Partial Class GraphMaker
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(168, 176)
+        Me.Label6.Location = New System.Drawing.Point(156, 122)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(88, 13)
         Me.Label6.TabIndex = 24
@@ -318,14 +318,14 @@ Partial Class GraphMaker
         '
         'xDivs
         '
-        Me.xDivs.Location = New System.Drawing.Point(262, 173)
+        Me.xDivs.Location = New System.Drawing.Point(250, 119)
         Me.xDivs.Name = "xDivs"
         Me.xDivs.Size = New System.Drawing.Size(34, 20)
         Me.xDivs.TabIndex = 25
         '
         'xNumEvery
         '
-        Me.xNumEvery.Location = New System.Drawing.Point(115, 173)
+        Me.xNumEvery.Location = New System.Drawing.Point(103, 119)
         Me.xNumEvery.Name = "xNumEvery"
         Me.xNumEvery.Size = New System.Drawing.Size(34, 20)
         Me.xNumEvery.TabIndex = 29
@@ -333,7 +333,7 @@ Partial Class GraphMaker
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(25, 176)
+        Me.Label7.Location = New System.Drawing.Point(13, 122)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(84, 13)
         Me.Label7.TabIndex = 28
@@ -342,7 +342,7 @@ Partial Class GraphMaker
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(25, 202)
+        Me.Label8.Location = New System.Drawing.Point(13, 148)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(84, 13)
         Me.Label8.TabIndex = 27
@@ -350,7 +350,7 @@ Partial Class GraphMaker
         '
         'yNumEvery
         '
-        Me.yNumEvery.Location = New System.Drawing.Point(115, 199)
+        Me.yNumEvery.Location = New System.Drawing.Point(103, 145)
         Me.yNumEvery.Name = "yNumEvery"
         Me.yNumEvery.Size = New System.Drawing.Size(34, 20)
         Me.yNumEvery.TabIndex = 26
@@ -358,7 +358,7 @@ Partial Class GraphMaker
         'MinorLineStyle
         '
         Me.MinorLineStyle.DropDownWidth = 200
-        Me.MinorLineStyle.Location = New System.Drawing.Point(115, 342)
+        Me.MinorLineStyle.Location = New System.Drawing.Point(116, 209)
         Me.MinorLineStyle.Name = "MinorLineStyle"
         Me.MinorLineStyle.Size = New System.Drawing.Size(121, 21)
         Me.MinorLineStyle.TabIndex = 33
@@ -366,7 +366,7 @@ Partial Class GraphMaker
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 346)
+        Me.Label9.Location = New System.Drawing.Point(13, 213)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(59, 13)
         Me.Label9.TabIndex = 32
@@ -374,7 +374,7 @@ Partial Class GraphMaker
         '
         'MinorWeight
         '
-        Me.MinorWeight.Location = New System.Drawing.Point(75, 343)
+        Me.MinorWeight.Location = New System.Drawing.Point(76, 210)
         Me.MinorWeight.Name = "MinorWeight"
         Me.MinorWeight.Size = New System.Drawing.Size(34, 20)
         Me.MinorWeight.TabIndex = 31
@@ -383,7 +383,7 @@ Partial Class GraphMaker
         '
         Me.MinorColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.MinorColour.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MinorColour.Location = New System.Drawing.Point(242, 342)
+        Me.MinorColour.Location = New System.Drawing.Point(243, 209)
         Me.MinorColour.Name = "MinorColour"
         Me.MinorColour.Size = New System.Drawing.Size(30, 20)
         Me.MinorColour.TabIndex = 30
@@ -392,7 +392,7 @@ Partial Class GraphMaker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(419, 272)
         Me.Controls.Add(Me.MinorLineStyle)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.MinorWeight)

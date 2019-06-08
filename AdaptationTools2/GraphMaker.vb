@@ -5,9 +5,9 @@ Public Class GraphMaker
 
     ' TODO
 
-    ' .Axis Labels
     ' .Redo Ticks
     ' .Plan different profiles
+
     Const DBG As Boolean = True
 
     '500 ~= width of A4 document
@@ -63,16 +63,23 @@ Public Class GraphMaker
         yFrom.Text = SavedCtls.Default.yFrom
         xTo.Text = SavedCtls.Default.xTo
         yTo.Text = SavedCtls.Default.yTo
+
         MajorWeight.Text = SavedCtls.Default.MajorWeight
         MajorColour.BackColor = SavedCtls.Default.MajorColour
         MajorLineStyle.SelectedIndex = SavedCtls.Default.MajorLineStyle
+
         MinorWeight.Text = SavedCtls.Default.MinorWeight
         MinorColour.BackColor = SavedCtls.Default.MinorColour
         MinorLineStyle.SelectedIndex = SavedCtls.Default.MinorLineStyle
+
         xNumEvery.Text = SavedCtls.Default.xNumEvery
         yNumEvery.Text = SavedCtls.Default.yNumEvery
         xDivs.Text = SavedCtls.Default.xDivs
         yDivs.Text = SavedCtls.Default.yDivs
+
+        Axes.Checked = SavedCtls.Default.Axes
+        AxisLabels.Checked = SavedCtls.Default.AxisLabels
+        Ticks.Checked = SavedCtls.Default.Ticks
 
         Dim r As Windows.Forms.RadioButton
         r = GrpPlotAs.Controls.Item(SavedCtls.Default.PlotAs)
@@ -108,12 +115,8 @@ Public Class GraphMaker
         e.Cancel = ErrNotANumber(sender)
     End Sub
 
-    Private Sub Val_Validated(sender As Object, e As EventArgs) Handles xFrom.Validating, xTo.Validated, yFrom.Validated, yTo.Validated, MajorWeight.Validated, MinorWeight.Validated, yNumEvery.Validated, yDivs.Validated, xNumEvery.Validated, xDivs.Validated
+    Private Sub Text_Validated(sender As Object, e As EventArgs) Handles xFrom.Validating, xTo.Validated, yFrom.Validated, yTo.Validated, MajorWeight.Validated, MinorWeight.Validated, yNumEvery.Validated, yDivs.Validated, xNumEvery.Validated, xDivs.Validated
         SavedCtls.Default.PropertyValues.Item(sender.Name).PropertyValue = sender.Text
-    End Sub
-
-    Private Sub MajorLineStyle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MajorLineStyle.SelectedIndexChanged
-        SavedCtls.Default.MajorLineStyle = MajorLineStyle.SelectedIndex
     End Sub
 
     Private Sub PlotAs_Validated(sender As Object, e As EventArgs) Handles PlotAsChart.Validated, PlotAsShapes.Validated
@@ -122,6 +125,18 @@ Public Class GraphMaker
 
     Private Sub Numbering_Validated(sender As Object, e As EventArgs) Handles NumUEB.Validated, NumStandard.Validated, NumNone.Validated
         SavedCtls.Default.PropertyValues.Item("Numbering").PropertyValue = sender.Name
+    End Sub
+
+    Private Sub CheckBox_Validated(sender As Object, e As EventArgs) Handles Ticks.Validated, Axes.Validated, AxisLabels.Validated
+        SavedCtls.Default.PropertyValues.Item(sender.Name).PropertyValue = sender.Checked
+    End Sub
+
+    Private Sub MajorLineStyle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MajorLineStyle.SelectedIndexChanged
+        SavedCtls.Default.MajorLineStyle = MajorLineStyle.SelectedIndex
+    End Sub
+
+    Private Sub MinorLineStyle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MinorLineStyle.SelectedIndexChanged
+        SavedCtls.Default.MinorLineStyle = MinorLineStyle.SelectedIndex
     End Sub
 
     ' == Misc
@@ -209,6 +224,19 @@ Public Class GraphMaker
         If ColorDialog1.ShowDialog() = DialogResult.OK Then
             MinorColour.BackColor = ColorDialog1.Color
             SavedCtls.Default.MinorColour = ColorDialog1.Color
+        End If
+
+    End Sub
+
+    Private Sub PlotAsShapes_CheckedChanged(sender As Object, e As EventArgs) Handles PlotAsShapes.CheckedChanged
+        NumUEB.Enabled = True
+    End Sub
+
+    Private Sub PlotAsChart_CheckedChanged(sender As Object, e As EventArgs) Handles PlotAsChart.CheckedChanged
+        NumUEB.Enabled = False
+        If NumUEB.Checked Then
+            NumStandard.Checked = True
+            Numbering_Validated(NumStandard, e) 'save the change
         End If
 
     End Sub
@@ -939,5 +967,6 @@ er:
         FormatNumbering = s
 
     End Function
+
 
 End Class

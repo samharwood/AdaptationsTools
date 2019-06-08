@@ -246,6 +246,7 @@
       <DependentUpon>GraphMaker.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ReadMe.md" />
     <None Include="SavedCtls.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>SavedCtls1.Designer.vb</LastGenOutput>

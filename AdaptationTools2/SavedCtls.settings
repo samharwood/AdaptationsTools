@@ -56,5 +56,14 @@
     <Setting Name="Numbering" Type="System.String" Scope="User">
       <Value Profile="(Default)">NumStandard</Value>
     </Setting>
+    <Setting Name="Ticks" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Axes" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AxisLabels" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

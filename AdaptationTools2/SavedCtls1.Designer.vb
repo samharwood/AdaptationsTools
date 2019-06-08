@@ -241,4 +241,40 @@ Partial Friend NotInheritable Class SavedCtls
             Me("Numbering") = value
         End Set
     End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+    Public Property Ticks() As Boolean
+        Get
+            Return CType(Me("Ticks"),Boolean)
+        End Get
+        Set
+            Me("Ticks") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+    Public Property Axes() As Boolean
+        Get
+            Return CType(Me("Axes"),Boolean)
+        End Get
+        Set
+            Me("Axes") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+    Public Property AxisLabels() As Boolean
+        Get
+            Return CType(Me("AxisLabels"),Boolean)
+        End Get
+        Set
+            Me("AxisLabels") = value
+        End Set
+    End Property
 End Class
