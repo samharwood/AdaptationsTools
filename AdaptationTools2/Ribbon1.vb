@@ -2,6 +2,33 @@
 
 Public Class Ribbon1
 
+    Private Sub Ribbon1_Load(sender As Object, e As RibbonUIEventArgs) Handles Me.Load
+        SetTips()
+
+
+    End Sub
+
+    Sub SetTips()
+
+        MathsToTextBtn.ScreenTip = "Prepare Maths for Large Print" & Strings.StrDup(30, " ")
+        MathsToTextBtn.SuperTip =
+           ("Makes selected Equations/Maths match Normal font style and size" & vbCrLf & vbCrLf &
+            "- Converts Equations to 'Text Equations'" & vbCrLf &
+            "- Matches Normal font style and size." & vbCrLf &
+            "- Further enlarge sub/supscripts for visibility")
+
+        MathsToBrailleBtn.ScreenTip = "Prepare Maths for MathType+Duxbury Brailling" & Strings.StrDup(30, " ")
+        MathsToBrailleBtn.SuperTip =
+           ("Fix-up problems in selected Equations/Maths that can cause issues when Brailling in Duxbury using MathType" & vbCrLf &
+            "Run this before converting Word Equations to MathType Equations" & vbCrLf & vbCrLf &
+            "- Sets Equations to Inline type" & vbCrLf &
+            "- Converts 'Text Equations' back to 'Normal Equations'" & vbCrLf &
+            "- Removes spaces in Equations" & vbCrLf &
+            "- Converts all dash/hyphen/etc characters into minus signs")
+
+
+
+    End Sub
 
     Private Sub GraphMakerBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles GraphMakerBtn.Click
 
@@ -28,4 +55,13 @@ Public Class Ribbon1
     Private Sub Button1_Click(sender As Object, e As RibbonControlEventArgs) Handles Button1.Click
         ReplaceWrongDash(SelectionToRange)
     End Sub
+
+    Private Sub MathsToBrailleBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles MathsToBrailleBtn.Click
+        PrepBrailleMaths()
+    End Sub
+
+    Private Sub MathsToTextBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles MathsToTextBtn.Click
+        PrepLargePrintMaths()
+    End Sub
+
 End Class

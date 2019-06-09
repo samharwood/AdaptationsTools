@@ -13,7 +13,7 @@
         objUndo.EndCustomRecord
     End Sub
 
-    Sub PasteOCR_int()
+    Private Sub PasteOCR_int()
 
         On Error GoTo er
         Dim r As Word.Range
@@ -35,7 +35,7 @@
         ' Reset r.start to where cursor was before paste to reselect pasted text
         r.Start = svStart
 
-        r.Select
+        r.Select()
 
         ' Fix-up OCR'd text
         FixOCR(r)
@@ -46,7 +46,7 @@ er:
         Select Case Err.Number
             Case 5342
                 ' 5342 can't paste this datatype as plain text, use default
-                r.Paste
+                r.Paste()
                 Resume Next
             Case Else
                 Err.Raise(Err.Number, Err.Source, Err.Description)
@@ -91,7 +91,7 @@ er:
         objUndo.EndCustomRecord
     End Sub
 
-    Sub FixOCR_Ligatures_int(r As Word.Range)
+    Private Sub FixOCR_Ligatures_int(r As Word.Range)
         'Fix ligatures
 
         '"fl ",

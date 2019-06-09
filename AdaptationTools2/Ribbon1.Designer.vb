@@ -41,18 +41,24 @@
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Group2 = Me.Factory.CreateRibbonGroup
         Me.TextBoundariesChk = Me.Factory.CreateRibbonCheckBox
         Me.Group4 = Me.Factory.CreateRibbonGroup
         Me.Group3 = Me.Factory.CreateRibbonGroup
         Me.AdTab1 = Me.Factory.CreateRibbonTab
+        Me.Group1 = Me.Factory.CreateRibbonGroup
         Me.GraphMakerBtn = Me.Factory.CreateRibbonButton
         Me.ThickenLinesBtn = Me.Factory.CreateRibbonButton
+        Me.MathsToTextBtn = Me.Factory.CreateRibbonButton
+        Me.MathsToBrailleBtn = Me.Factory.CreateRibbonButton
         Me.AboutBtn = Me.Factory.CreateRibbonButton
         Me.HelpBtn = Me.Factory.CreateRibbonButton
         Me.Button1 = Me.Factory.CreateRibbonButton
-        Me.Group1 = Me.Factory.CreateRibbonGroup
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.PasteFromPDF_Btn = Me.Factory.CreateRibbonButton
         Me.Group2.SuspendLayout()
+        Me.Group4.SuspendLayout()
         Me.Group3.SuspendLayout()
         Me.AdTab1.SuspendLayout()
         Me.Group1.SuspendLayout()
@@ -73,6 +79,9 @@
         '
         'Group4
         '
+        Me.Group4.Items.Add(Me.PasteFromPDF_Btn)
+        Me.Group4.Items.Add(Me.MathsToTextBtn)
+        Me.Group4.Items.Add(Me.MathsToBrailleBtn)
         Me.Group4.Label = "Text Tools"
         Me.Group4.Name = "Group4"
         '
@@ -92,18 +101,48 @@
         Me.AdTab1.Label = "Adaptations"
         Me.AdTab1.Name = "AdTab1"
         '
+        'Group1
+        '
+        Me.Group1.Items.Add(Me.TextBoundariesChk)
+        Me.Group1.Label = "Display"
+        Me.Group1.Name = "Group1"
+        '
         'GraphMakerBtn
         '
         Me.GraphMakerBtn.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.GraphMakerBtn.ImageName = "MenuPublish"
         Me.GraphMakerBtn.Label = "Graph Maker"
         Me.GraphMakerBtn.Name = "GraphMakerBtn"
+        Me.GraphMakerBtn.OfficeImageId = "GridSettings"
         Me.GraphMakerBtn.ShowImage = True
         '
         'ThickenLinesBtn
         '
+        Me.ThickenLinesBtn.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.ThickenLinesBtn.ImageName = "MenuPublish"
         Me.ThickenLinesBtn.Label = "Thicken Lines"
         Me.ThickenLinesBtn.Name = "ThickenLinesBtn"
+        Me.ThickenLinesBtn.OfficeImageId = "LineThickness"
         Me.ThickenLinesBtn.ShowImage = True
+        '
+        'MathsToTextBtn
+        '
+        Me.MathsToTextBtn.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.MathsToTextBtn.ImageName = "MenuPublish"
+        Me.MathsToTextBtn.KeyTip = "MT"
+        Me.MathsToTextBtn.Label = "Large Print Maths"
+        Me.MathsToTextBtn.Name = "MathsToTextBtn"
+        Me.MathsToTextBtn.OfficeImageId = "SelectionToMathConvert"
+        Me.MathsToTextBtn.ShowImage = True
+        '
+        'MathsToBrailleBtn
+        '
+        Me.MathsToBrailleBtn.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.MathsToBrailleBtn.KeyTip = "MB"
+        Me.MathsToBrailleBtn.Label = "Braille Maths Fixes"
+        Me.MathsToBrailleBtn.Name = "MathsToBrailleBtn"
+        Me.MathsToBrailleBtn.OfficeImageId = "EquationEdit"
+        Me.MathsToBrailleBtn.ShowImage = True
         '
         'AboutBtn
         '
@@ -122,11 +161,19 @@
         Me.Button1.Name = "Button1"
         Me.Button1.ShowImage = True
         '
-        'Group1
+        'ImageList1
         '
-        Me.Group1.Items.Add(Me.TextBoundariesChk)
-        Me.Group1.Label = "Display"
-        Me.Group1.Name = "Group1"
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'PasteFromPDF_Btn
+        '
+        Me.PasteFromPDF_Btn.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.PasteFromPDF_Btn.KeyTip = "MB"
+        Me.PasteFromPDF_Btn.Label = "Paste from PDF"
+        Me.PasteFromPDF_Btn.Name = "PasteFromPDF_Btn"
+        Me.PasteFromPDF_Btn.ShowImage = True
         '
         'Ribbon1
         '
@@ -135,6 +182,8 @@
         Me.Tabs.Add(Me.AdTab1)
         Me.Group2.ResumeLayout(False)
         Me.Group2.PerformLayout()
+        Me.Group4.ResumeLayout(False)
+        Me.Group4.PerformLayout()
         Me.Group3.ResumeLayout(False)
         Me.Group3.PerformLayout()
         Me.AdTab1.ResumeLayout(False)
@@ -155,6 +204,10 @@
     Friend WithEvents TextBoundariesChk As Microsoft.Office.Tools.Ribbon.RibbonCheckBox
     Friend WithEvents Button1 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Group1 As Microsoft.Office.Tools.Ribbon.RibbonGroup
+    Friend WithEvents MathsToTextBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents MathsToBrailleBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents ImageList1 As Windows.Forms.ImageList
+    Friend WithEvents PasteFromPDF_Btn As Microsoft.Office.Tools.Ribbon.RibbonButton
 End Class
 
 Partial Class ThisRibbonCollection
