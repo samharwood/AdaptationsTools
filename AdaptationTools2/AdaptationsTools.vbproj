@@ -208,7 +208,11 @@
   -->
   <ItemGroup>
     <AppDesigner Include="My Project\" />
-    <Compile Include="AdaptationsTools.vb" />
+    <Compile Include="Common.vb" />
+    <Compile Include="Display.vb" />
+    <None Include="DISABLED.vb" />
+    <Compile Include="Maths.vb" />
+    <Compile Include="PasteOCR.vb" />
     <Compile Include="Ribbon1.Designer.vb">
       <DependentUpon>Ribbon1.vb</DependentUpon>
     </Compile>

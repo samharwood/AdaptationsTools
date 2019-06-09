@@ -43,7 +43,6 @@ Public Class GraphMaker
     Dim yDigitGap As Single
 
 
-
     ' == Events
 
     Private Sub GraphMakerUI_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -86,7 +85,6 @@ Public Class GraphMaker
         r.Checked = True
 
     End Sub
-
 
 
     ' === Validation
@@ -139,48 +137,6 @@ Public Class GraphMaker
     ' == Misc
 
     Sub PopulateLists()
-
-        ' Copied from Word.WdLineStyle Enum
-        ' because can't enumerate Enum to use it directly
-        Dim WordLineStyles() As String = {
-            "None",
-            "Single",
-            "Dot",
-            "DashSmallGap",
-            "DashLargeGap",
-            "DashDot",
-            "DashDotDot",
-            "Double",
-            "Triple",
-            "ThinThickSmallGap",
-            "ThickThinSmallGap",
-            "ThinThickThinSmallGap",
-            "ThinThickMedGap",
-            "ThickThinMedGap",
-            "ThinThickThinMedGap",
-            "ThinThickLargeGap",
-            "ThickThinLargeGap",
-            "ThinThickThinLargeGap",
-            "SingleWavy",
-            "DoubleWavy",
-            "DashDotStroked",
-            "Emboss3D",
-            "Engrave3D",
-            "Outset",
-            "Inset"
-        }
-
-        Dim ChartLineStyles() As String = {
-            "Solid",
-            "Square Dot",
-            "Round Dot",
-            "Long Dash",
-            "Long Dash Dot",
-            "Long Dash Dot Dot",
-            "Sys Dash",
-            "Sys Dot",
-            "Sys Dash Dot"
-        }
 
         Dim DashLineStyles() As String = {
             "Solid",
@@ -963,6 +919,5 @@ er:
         FormatNumbering = s
 
     End Function
-
 
 End Class

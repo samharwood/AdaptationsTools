@@ -42,34 +42,34 @@
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Group2 = Me.Factory.CreateRibbonGroup
-        Me.AboutBtn = Me.Factory.CreateRibbonButton
-        Me.HelpBtn = Me.Factory.CreateRibbonButton
+        Me.TextBoundariesChk = Me.Factory.CreateRibbonCheckBox
         Me.Group4 = Me.Factory.CreateRibbonGroup
         Me.Group3 = Me.Factory.CreateRibbonGroup
-        Me.GraphMakerBtn = Me.Factory.CreateRibbonButton
         Me.AdTab1 = Me.Factory.CreateRibbonTab
+        Me.GraphMakerBtn = Me.Factory.CreateRibbonButton
         Me.ThickenLinesBtn = Me.Factory.CreateRibbonButton
+        Me.AboutBtn = Me.Factory.CreateRibbonButton
+        Me.HelpBtn = Me.Factory.CreateRibbonButton
+        Me.Button1 = Me.Factory.CreateRibbonButton
+        Me.Group1 = Me.Factory.CreateRibbonGroup
         Me.Group2.SuspendLayout()
         Me.Group3.SuspendLayout()
         Me.AdTab1.SuspendLayout()
+        Me.Group1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Group2
         '
         Me.Group2.Items.Add(Me.AboutBtn)
         Me.Group2.Items.Add(Me.HelpBtn)
+        Me.Group2.Items.Add(Me.Button1)
         Me.Group2.Label = "Info"
         Me.Group2.Name = "Group2"
         '
-        'AboutBtn
+        'TextBoundariesChk
         '
-        Me.AboutBtn.Label = "About"
-        Me.AboutBtn.Name = "AboutBtn"
-        '
-        'HelpBtn
-        '
-        Me.HelpBtn.Label = "Help"
-        Me.HelpBtn.Name = "HelpBtn"
+        Me.TextBoundariesChk.Label = "Text Boundaries"
+        Me.TextBoundariesChk.Name = "TextBoundariesChk"
         '
         'Group4
         '
@@ -83,6 +83,15 @@
         Me.Group3.Label = "Drawing Tools"
         Me.Group3.Name = "Group3"
         '
+        'AdTab1
+        '
+        Me.AdTab1.Groups.Add(Me.Group3)
+        Me.AdTab1.Groups.Add(Me.Group4)
+        Me.AdTab1.Groups.Add(Me.Group1)
+        Me.AdTab1.Groups.Add(Me.Group2)
+        Me.AdTab1.Label = "Adaptations"
+        Me.AdTab1.Name = "AdTab1"
+        '
         'GraphMakerBtn
         '
         Me.GraphMakerBtn.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
@@ -90,19 +99,34 @@
         Me.GraphMakerBtn.Name = "GraphMakerBtn"
         Me.GraphMakerBtn.ShowImage = True
         '
-        'AdTab1
-        '
-        Me.AdTab1.Groups.Add(Me.Group3)
-        Me.AdTab1.Groups.Add(Me.Group4)
-        Me.AdTab1.Groups.Add(Me.Group2)
-        Me.AdTab1.Label = "Adaptations"
-        Me.AdTab1.Name = "AdTab1"
-        '
         'ThickenLinesBtn
         '
         Me.ThickenLinesBtn.Label = "Thicken Lines"
         Me.ThickenLinesBtn.Name = "ThickenLinesBtn"
         Me.ThickenLinesBtn.ShowImage = True
+        '
+        'AboutBtn
+        '
+        Me.AboutBtn.Label = "About"
+        Me.AboutBtn.Name = "AboutBtn"
+        '
+        'HelpBtn
+        '
+        Me.HelpBtn.Label = "Help"
+        Me.HelpBtn.Name = "HelpBtn"
+        '
+        'Button1
+        '
+        Me.Button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.Button1.Label = "TEST"
+        Me.Button1.Name = "Button1"
+        Me.Button1.ShowImage = True
+        '
+        'Group1
+        '
+        Me.Group1.Items.Add(Me.TextBoundariesChk)
+        Me.Group1.Label = "Display"
+        Me.Group1.Name = "Group1"
         '
         'Ribbon1
         '
@@ -115,6 +139,8 @@
         Me.Group3.PerformLayout()
         Me.AdTab1.ResumeLayout(False)
         Me.AdTab1.PerformLayout()
+        Me.Group1.ResumeLayout(False)
+        Me.Group1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -126,6 +152,9 @@
     Friend WithEvents GraphMakerBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents AdTab1 As Microsoft.Office.Tools.Ribbon.RibbonTab
     Friend WithEvents ThickenLinesBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents TextBoundariesChk As Microsoft.Office.Tools.Ribbon.RibbonCheckBox
+    Friend WithEvents Button1 As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents Group1 As Microsoft.Office.Tools.Ribbon.RibbonGroup
 End Class
 
 Partial Class ThisRibbonCollection

@@ -1,4 +1,7 @@
 ﻿Module ThickenLinesModule
+    'TODO 
+    ' .FEATURE: Increase thickness as a percentage of current width
+    ' .FEATURE: Specify minimum width (for thinnest line in selection), thicken others proportionally 
 
     Sub ThickenLines()
         ' Thickens all Visible lines of Shapes and Table Borders to specified Width

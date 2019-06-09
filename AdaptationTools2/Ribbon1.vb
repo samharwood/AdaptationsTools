@@ -20,4 +20,12 @@ Public Class Ribbon1
     Private Sub ThickenLinesBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles ThickenLinesBtn.Click
         ThickenLines()
     End Sub
+
+    Private Sub TextBoundariesChk_Click(sender As Object, e As RibbonControlEventArgs) Handles TextBoundariesChk.Click
+        ToggleTextBoundaries()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As RibbonControlEventArgs) Handles Button1.Click
+        ReplaceWrongDash(SelectionToRange)
+    End Sub
 End Class
