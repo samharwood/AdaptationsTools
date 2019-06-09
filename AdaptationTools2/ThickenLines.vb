@@ -72,7 +72,7 @@
 
         Else
 
-            Select Case ActiveDocument.Styles("Normal").Font.Size
+            Select Case App.ActiveDocument.Styles("Normal").Font.Size
                 Case Is >= 36 : lw = Word.WdLineWidth.wdLineWidth600pt
                 Case Is >= 24 : lw = Word.WdLineWidth.wdLineWidth450pt
                 Case Is >= 18 : lw = Word.WdLineWidth.wdLineWidth300pt
@@ -117,7 +117,7 @@ er:
             Else
                 ' thicken lines to Normal/6
                 ' 36=6, 24=4, 18=3, 12=2
-                shp.Line.Weight = ActiveDocument.Styles("Normal").Font.Size / 6
+                shp.Line.Weight = App.ActiveDocument.Styles("Normal").Font.Size / 6
             End If
         End If
 

@@ -1,4 +1,5 @@
-﻿Module AdaptationsTools
+﻿
+Module AdaptationsTools
     'TODO
     ' .Adaptations tools
     ' .Design Ribbon
@@ -9,15 +10,16 @@
 
         Dim rng As Word.Range
         Dim Sel As Word.Selection
-        'Sel = ActiveDocument.Selection
-        'TODO Fix losing selection
+        Dim ActiveDocument As Word.Document
+        Sel = App.Selection
+        ActiveDocument = App.ActiveDocument
 
-        SelectTestMath(ActiveDocument.Selection) 'Workaround for bug
+        SelectTestMath(Sel) 'Workaround for bug
 
-        If ActiveDocument.Selection.Start >= ActiveDocument.Selection.End Then
+        If Sel.Start >= Sel.End Then
 
             ' return no Sel
-            rng = ActiveDocument.Range(Start:=ActiveDocument.Selection.Start, End:=ActiveDocument.Selection.Start)
+            rng = ActiveDocument.Range(Start:=Sel.Start, End:=Sel.Start)
 
             ' if no Sel return whole document
             'rng = ActiveDocument.Range(Start:=ActiveDocument.Range.Start, End:=ActiveDocument.Range.End - 1)
@@ -26,10 +28,10 @@
 
             ' Do not allow last character of document to be part of Sel
             ' (last char cannot be deleted and causes replaceall to loop infinitely)
-            If ActiveDocument.Selection.End = ActiveDocument.Range.End Then
-                rng = ActiveDocument.Range(Start:=ActiveDocument.Selection.Start, End:=ActiveDocument.Selection.End - 1)
+            If Sel.End = ActiveDocument.Range.End Then
+                rng = ActiveDocument.Range(Start:=Sel.Start, End:=Sel.End - 1)
             Else
-                rng = ActiveDocument.Range(Start:=ActiveDocument.Selection.Start, End:=ActiveDocument.Selection.End)
+                rng = ActiveDocument.Range(Start:=Sel.Start, End:=Sel.End)
             End If
 
         End If

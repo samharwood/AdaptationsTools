@@ -8,7 +8,6 @@ Public Class Ribbon1
         If GMUI Is Nothing Then GMUI = New GraphMaker
         GMUI.Show()
         GMUI.Activate()
-
     End Sub
 
     Private Sub AboutBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles AboutBtn.Click

@@ -272,7 +272,7 @@ er:
         xRange = Math.Abs(xFrom.Text - xTo.Text)
         yRange = Math.Abs(yFrom.Text - yTo.Text)
 
-        textHeight = ActiveDocument.Styles("Normal").Font.Size * 2
+        textHeight = App.ActiveDocument.Styles("Normal").Font.Size * 2
 
         xTotalMajors = Int(xRange / xNumEvery.Text) + 1
         ' Combine all elements and roundup to next whole number. It works but don't quite know how!
@@ -287,8 +287,8 @@ er:
 
 
         ' Size graph to best fit the page.
-        pgWidth = ActiveDocument.PageSetup.PageWidth - (GM_GUTTER * 2)
-        pgHeight = ActiveDocument.PageSetup.PageHeight - (GM_GUTTER * 2)
+        pgWidth = App.ActiveDocument.PageSetup.PageWidth - (GM_GUTTER * 2)
+        pgHeight = App.ActiveDocument.PageSetup.PageHeight - (GM_GUTTER * 2)
 
         ' Major grid is SQUARE. Use shortest XY dimension to make sure it fits on the page.
         If pgWidth / xTotalMajors < pgHeight / yTotalMajors Then
@@ -346,7 +346,7 @@ er:
         Dim a As Word.Axis
 
 
-        s = ActiveDocument.Shapes.AddChart2(-1, Office.XlChartType.xlXYScatter)
+        s = App.ActiveDocument.Shapes.AddChart2(-1, Office.XlChartType.xlXYScatter)
         c = s.Chart
 
         c.PlotArea.InsideHeight = graphHeight
@@ -365,8 +365,8 @@ er:
         c.ChartArea.Format.Line.Visible = Office.MsoTriState.msoFalse 'chart border line
         c.ChartArea.Format.Fill.Visible = Office.MsoTriState.msoFalse 'transparent
         c.PlotArea.Format.Fill.Visible = Office.MsoTriState.msoFalse 'transparent
-        c.ChartArea.Format.TextFrame2.TextRange.Font.Size = ActiveDocument.Styles("Normal").Font.Size
-        c.ChartArea.Format.TextFrame2.TextRange.Font.Name = ActiveDocument.Styles("Normal").Font.Name
+        c.ChartArea.Format.TextFrame2.TextRange.Font.Size = App.ActiveDocument.Styles("Normal").Font.Size
+        c.ChartArea.Format.TextFrame2.TextRange.Font.Name = App.ActiveDocument.Styles("Normal").Font.Name
         c.ChartArea.Format.TextFrame2.TextRange.Font.Fill.ForeColor.RGB = Word.WdColor.wdColorBlack
 
 
@@ -501,7 +501,7 @@ er:
         Next i
 
         If i = 0 Then Exit Sub 'No shapes to group!
-        shpGroup = ActiveDocument.Shapes.Range(a).Group
+        shpGroup = App.ActiveDocument.Shapes.Range(a).Group
         shpGroup.Name = "Graph X" & xFrom.Text & "," & xTo.Text _
                         & " Y" & yFrom.Text & "," & yTo.Text
 
@@ -539,7 +539,7 @@ er:
 
             If Ticks.Checked Then TopDown = graphLL(Y) + GM_TICK_LENGTH
 
-            shpLine = ActiveDocument.Shapes.AddLine(TopLeft, TopDown, BottomLeft, BottomDown)
+            shpLine = App.ActiveDocument.Shapes.AddLine(TopLeft, TopDown, BottomLeft, BottomDown)
 
             shpLine.Name = "X " & i
 
@@ -549,8 +549,8 @@ er:
 
         ' if just 1 shape
         ' set shpGroup to just that 1 shape
-        If UBound(a) = 0 Then shpGroup = ActiveDocument.Shapes(a(0)) _
-            Else shpGroup = ActiveDocument.Shapes.Range(a).Group
+        If UBound(a) = 0 Then shpGroup = App.ActiveDocument.Shapes(a(0)) _
+            Else shpGroup = App.ActiveDocument.Shapes.Range(a).Group
 
         shpGroup.Name = "X Major"
         FormatMajorStyle(shpGroup)
@@ -596,7 +596,7 @@ er:
                 LeftAlong = graphLL(x) - GM_TICK_LENGTH
             End If
 
-            shpLine = ActiveDocument.Shapes.AddLine(LeftAlong, LeftDown, RightAlong, RightDown)
+            shpLine = App.ActiveDocument.Shapes.AddLine(LeftAlong, LeftDown, RightAlong, RightDown)
 
             shpLine.Name = "Y " & i
 
@@ -606,8 +606,8 @@ er:
 
         ' if just 1 shape
         ' set shpGroup to just that 1 shape
-        If UBound(a) = 0 Then shpGroup = ActiveDocument.Shapes(a(0)) _
-            Else shpGroup = ActiveDocument.Shapes.Range(a).Group
+        If UBound(a) = 0 Then shpGroup = App.ActiveDocument.Shapes(a(0)) _
+            Else shpGroup = App.ActiveDocument.Shapes.Range(a).Group
 
         shpGroup.Name = "Y Major"
         FormatMajorStyle(shpGroup)
@@ -639,7 +639,7 @@ er:
             ln = (gap * i) + graphLL(x)
 
             'TopLeft, TopDown, BottomLeft, BottomDown
-            shpLine = ActiveDocument.Shapes.AddLine(ln, GM_GUTTER, ln, graphLL(Y))
+            shpLine = App.ActiveDocument.Shapes.AddLine(ln, GM_GUTTER, ln, graphLL(Y))
             shpLine.Name = "X " & i
 
             a(i) = shpLine.Name
@@ -648,8 +648,8 @@ er:
 
         ' if just 1 shape
         ' set shpGroup to just that 1 shape
-        If UBound(a) = 0 Then shpGroup = ActiveDocument.Shapes(a(0)) _
-            Else shpGroup = ActiveDocument.Shapes.Range(a).Group
+        If UBound(a) = 0 Then shpGroup = App.ActiveDocument.Shapes(a(0)) _
+            Else shpGroup = App.ActiveDocument.Shapes.Range(a).Group
 
         shpGroup.Name = "X Minor"
         FormatMinorStyle(shpGroup)
@@ -684,7 +684,7 @@ er:
 
             ' Construct bottom up to start major on zero axis
             'LeftAlong, LeftDown, RightAlong, RightDown
-            shpLine = ActiveDocument.Shapes.AddLine(graphLL(x), graphLL(Y) - ln, graphLL(x) + graphWidth, graphLL(Y) - ln)
+            shpLine = App.ActiveDocument.Shapes.AddLine(graphLL(x), graphLL(Y) - ln, graphLL(x) + graphWidth, graphLL(Y) - ln)
             shpLine.Name = "Y " & i
 
             a(i) = shpLine.Name
@@ -693,8 +693,8 @@ er:
 
         ' if just 1 shape
         ' set shpGroup to just that 1 shape
-        If UBound(a) = 0 Then shpGroup = ActiveDocument.Shapes(a(0)) _
-            Else shpGroup = ActiveDocument.Shapes.Range(a).Group
+        If UBound(a) = 0 Then shpGroup = App.ActiveDocument.Shapes(a(0)) _
+            Else shpGroup = App.ActiveDocument.Shapes.Range(a).Group
 
         shpGroup.Name = "Y Minor"
         FormatMinorStyle(shpGroup)
@@ -728,7 +728,7 @@ er:
         For i = 0 To xTotalMajors - 1
             ln = gap * i
             'TopLeft, TopDown, LabelWidth, LabelHeight
-            shp = ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, GM_GUTTER + ln, graphOrigin(Y), gap, textHeight * 1.5)
+            shp = App.ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, GM_GUTTER + ln, graphOrigin(Y), gap, textHeight * 1.5)
 
             n = i
             If CSng(xFrom.Text) > CSng(xTo.Text) Then n = -i 'descending numbering
@@ -743,8 +743,8 @@ er:
 
         ' if just 1 shape
         ' set shpGroup to just that 1 shape
-        If UBound(a) = 0 Then shpGroup = ActiveDocument.Shapes(a(0)) _
-            Else shpGroup = ActiveDocument.Shapes.Range(a).Group
+        If UBound(a) = 0 Then shpGroup = App.ActiveDocument.Shapes(a(0)) _
+            Else shpGroup = App.ActiveDocument.Shapes.Range(a).Group
 
         shpGroup.Name = "X Labels"
         shpGroup.Line.Visible = Office.MsoTriState.msoFalse
@@ -782,7 +782,7 @@ er:
         For i = 0 To yTotalMajors - 1
             ln = gap * i
             'TopLeft, TopDown, LabelWidth, LabelHeight
-            shp = ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, graphOrigin(x), graphLL(Y) - ln, textHeight * 1.5, gap)
+            shp = App.ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, graphOrigin(x), graphLL(Y) - ln, textHeight * 1.5, gap)
 
             n = i
             If CSng(yFrom.Text) > CSng(yTo.Text) Then n = -i 'descending numbering
@@ -799,8 +799,8 @@ er:
 
         ' if just 1 shape
         ' set shpGroup to just that 1 shape
-        If UBound(a) = 0 Then shpGroup = ActiveDocument.Shapes(a(0)) _
-            Else shpGroup = ActiveDocument.Shapes.Range(a).Group
+        If UBound(a) = 0 Then shpGroup = App.ActiveDocument.Shapes(a(0)) _
+            Else shpGroup = App.ActiveDocument.Shapes.Range(a).Group
 
         shpGroup.Name = "Y Labels"
         shpGroup.Line.Visible = Office.MsoTriState.msoFalse
@@ -833,20 +833,20 @@ er:
         'Y
         lineLength = graphLL(Y) - (graphHeight + GM_AXISHEAD)
 
-        shp = ActiveDocument.Shapes.AddLine(graphOrigin(x), graphLL(Y), graphOrigin(x), lineLength)
+        shp = App.ActiveDocument.Shapes.AddLine(graphOrigin(x), graphLL(Y), graphOrigin(x), lineLength)
         shp.Name = "Y Axis"
         a(0) = shp.Name
 
         'X
         lineLength = graphLL(x) + graphWidth + GM_AXISHEAD
 
-        shp = ActiveDocument.Shapes.AddLine(graphLL(x), graphOrigin(Y), lineLength, graphOrigin(Y))
+        shp = App.ActiveDocument.Shapes.AddLine(graphLL(x), graphOrigin(Y), lineLength, graphOrigin(Y))
         shp.Name = "X Axis"
         a(1) = shp.Name
 
 
         'Grouping
-        shpGroup = ActiveDocument.Shapes.Range(a).Group
+        shpGroup = App.ActiveDocument.Shapes.Range(a).Group
         shpGroup.Name = "Axes"
 
         If MajorWeight.Text <= 0 Then shpGroup.Line.Weight = "6" _
@@ -871,7 +871,7 @@ er:
         TopDown = graphOrigin(Y) - (textHeight / 2)
 
         'TopLeft, TopDown, LabelWidth, LabelHeight
-        shp = ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, TopLeft, TopDown, textHeight, textHeight)
+        shp = App.ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, TopLeft, TopDown, textHeight, textHeight)
 
         shp.Name = "X Axis Label"
         shp.TextFrame.TextRange.Text = "X"
@@ -885,7 +885,7 @@ er:
         TopDown = graphLL(Y) - (graphHeight + GM_AXISHEAD + textHeight)
 
         'TopLeft, TopDown, LabelWidth, LabelHeight
-        shp = ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, TopLeft, TopDown, textHeight, textHeight)
+        shp = App.ActiveDocument.Shapes.AddTextbox(Office.MsoTextOrientation.msoTextOrientationHorizontal, TopLeft, TopDown, textHeight, textHeight)
 
         shp.Name = "Y Axis Label"
         shp.TextFrame.TextRange.Text = "Y"
