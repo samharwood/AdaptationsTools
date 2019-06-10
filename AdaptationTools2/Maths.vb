@@ -305,7 +305,6 @@ er:
         ' -Make Inline as MathType conversion inserts Tab chars when converting from Display type
 
         Dim r As Word.Range
-        Dim c As Word.Range
         Dim o As Word.OMath
 
         'create a range to edit the document as o and c are readonly
@@ -358,7 +357,7 @@ er:
 
                 c = o.Range.Characters(i)
 
-                Select Case AscW(c)
+                Select Case AscW(c.Text)
 
                     ' special case minus sign
                     ' hyphen 45, minus 8722

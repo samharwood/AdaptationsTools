@@ -159,11 +159,11 @@ Public Class GraphMaker
 
     ' == UI Actions
 
-    Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+    Private Sub BtnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         CreatGraph()
     End Sub
 
-    Private Sub majorColour_Click(sender As Object, e As EventArgs) Handles MajorColour.Click
+    Private Sub MajorColour_Click(sender As Object, e As EventArgs) Handles MajorColour.Click
 
         If ColorDialog1.ShowDialog() = DialogResult.OK Then
             MajorColour.BackColor = ColorDialog1.Color
@@ -172,7 +172,7 @@ Public Class GraphMaker
 
     End Sub
 
-    Private Sub minorColour_Click(sender As Object, e As EventArgs) Handles MinorColour.Click
+    Private Sub MinorColour_Click(sender As Object, e As EventArgs) Handles MinorColour.Click
 
         If ColorDialog1.ShowDialog() = DialogResult.OK Then
             MinorColour.BackColor = ColorDialog1.Color
@@ -817,7 +817,6 @@ er:
 
     Sub PlotAxisLabels()
 
-        Dim shpGroup As Word.Shape
         Dim shp As Word.Shape
         Dim TopLeft As Single
         Dim TopDown As Single

@@ -9,6 +9,8 @@ Public Class Ribbon1
     End Sub
 
     Sub SetTips()
+        'TODO 
+        ' Tips for all controls
 
         MathsToTextBtn.ScreenTip = "Prepare Maths for Large Print" & Strings.StrDup(30, " ")
         MathsToTextBtn.SuperTip =
