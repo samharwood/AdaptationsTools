@@ -12,12 +12,11 @@ Public NotInheritable Class AboutBox
         End If
         Me.Text = String.Format("About {0}", ApplicationTitle)
         ' Initialize all of the text displayed on the About Box.
-        ' TODO: Customize the application's assembly information in the "Application" pane of the project 
+        ' Customize the application's assembly information in the "Application" pane of the project 
         '    properties dialog (under the "Project" menu).
         Me.LabelProductName.Text = My.Application.Info.ProductName
         Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
-        Me.LabelCompanyName.Text = My.Application.Info.CompanyName
         Me.TextBoxDescription.Text = My.Application.Info.Description
     End Sub
 
@@ -28,5 +27,9 @@ Public NotInheritable Class AboutBox
     Private Sub AboutBox1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         e.Cancel = True
         Me.Hide()
+    End Sub
+
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        System.Diagnostics.Process.Start(sender.Text)
     End Sub
 End Class

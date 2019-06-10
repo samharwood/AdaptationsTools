@@ -24,16 +24,39 @@
     <ProjectGuid>{0F0DE655-50F8-4A0F-9630-95F97E1133B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>AdaptationTools2</RootNamespace>
-    <AssemblyName>AdaptationTools2</AssemblyName>
-    <LoadBehavior>3</LoadBehavior>
+    <AssemblyName>AdaptationsTools</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <StartupObject>
     </StartupObject>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsLocation>HomeSite</BootstrapperComponentsLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <InstallUrl />
+    <TargetCulture>en</TargetCulture>
+    <ApplicationVersion>0.0.0.3</ApplicationVersion>
+    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateInterval>4</UpdateInterval>
+    <UpdateIntervalUnits>weeks</UpdateIntervalUnits>
+    <ProductName>AdaptationsTools</ProductName>
+    <PublisherName />
+    <SupportUrl>https://dev.azure.com/samharwood/AdaptationsTools</SupportUrl>
+    <FriendlyName>AdaptationsTools</FriendlyName>
+    <OfficeApplicationDescription />
+    <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
@@ -74,7 +97,7 @@
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>AdaptationTools2.xml</DocumentationFile>
+    <DocumentationFile>AdaptationsTools.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -103,7 +126,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>AdaptationTools2.xml</DocumentationFile>
+    <DocumentationFile>AdaptationsTools.xml</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -113,6 +136,9 @@
   -->
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -159,6 +185,7 @@
   </ItemGroup>
   <!-- Visual Basic supports importing namespaces (equivalent to "using" statements in C#). -->
   <ItemGroup>
+    <Import Include="Excel = Microsoft.Office.Interop.Excel" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections.Generic" />
@@ -181,7 +208,12 @@
   -->
   <ItemGroup>
     <AppDesigner Include="My Project\" />
-    <Compile Include="AdaptationsTools.vb" />
+    <Compile Include="Common.vb" />
+    <Compile Include="Display.vb" />
+    <None Include="AdaptationsTools_TemporaryKey.pfx" />
+    <None Include="DISABLED.vb" />
+    <Compile Include="Maths.vb" />
+    <Compile Include="PasteOCR.vb" />
     <Compile Include="Ribbon1.Designer.vb">
       <DependentUpon>Ribbon1.vb</DependentUpon>
     </Compile>
@@ -193,6 +225,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>SavedCtls.settings</DependentUpon>
     </Compile>
+    <Compile Include="ThickenLines.vb" />
     <Compile Include="ThisAddIn.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -218,7 +251,6 @@
     <EmbeddedResource Include="GraphMaker.resx">
       <DependentUpon>GraphMaker.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="AdaptationTools2_TemporaryKey.pfx" />
     <None Include="app.config" />
     <None Include="SavedCtls.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -251,14 +283,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="VBA\Experimental.bas" />
-    <Content Include="VBA\GraphMaker.bas" />
-    <Content Include="VBA\Internals.bas" />
-    <Content Include="VBA\Maths.bas" />
-    <Content Include="VBA\SavedValues.bas" />
-    <Content Include="VBA\Tools.bas" />
-    <Content Include="VBA\Utils.bas" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -273,13 +299,16 @@
     <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>AdaptationTools2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>AdaptationsTools_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>5A94B56F4A6FB2210B482E4778A7C2C9C841284C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1FDD52D14A3F1C4B49DBF6F576E63FF2B1D68183</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <!-- Include the build rules for a Visual Basic project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
@@ -290,8 +319,8 @@
     <VisualStudio>
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Word" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Word" Language="vb" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Word\InstallRoot\Path#WINWORD.EXE" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{DCFE8D25-4715-4C33-9EAB-A34A9EBC9544}" />
-        <Host Name="Word" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.vb" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.vb" />
+        <Host Name="Word" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.vb" CanonicalName="AddIn" PublishedHash="8DB4E9B4B91A1CB36C3EB1356DE8DC7251E40D5D" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.vb" />
         </Host>
       </FlavorProperties>
     </VisualStudio>

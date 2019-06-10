@@ -9,12 +9,12 @@ Imports System.Security
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("AdaptationTools2")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("AdaptationTools2")> 
-<Assembly: AssemblyCopyright("Copyright ©  2019")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("Adaptation Tools")>
+<Assembly: AssemblyDescription("Add-in for Microsoft Word with a collection of useful tools to assist with the preparation of adapted documents into Large Print or Braille")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("Adaptation Tools")>
+<Assembly: AssemblyCopyright("")>
+<Assembly: AssemblyTrademark("")>
 
 ' Setting ComVisible to false makes the types in this assembly not visible 
 ' to COM components.  If you need to access a type in this assembly from 

@@ -260,6 +260,7 @@ Sub FormatChartLines(c As Chart, v As XlAxisType)
     
 End Sub
 
+' == Ploat as Shapes
 
 Sub PlotAsShapes()
     

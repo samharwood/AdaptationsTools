@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AdaptationsTools", "AdaptationTools2\AdaptationsTools.vbproj", "{0F0DE655-50F8-4A0F-9630-95F97E1133B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E00BB77-72DA-4810-8E83-E73C780BA114}"
+	ProjectSection(SolutionItems) = preProject
+		AdaptationTools2\VBA\Experimental.bas = AdaptationTools2\VBA\Experimental.bas
+		AdaptationTools2\VBA\GraphMaker.bas = AdaptationTools2\VBA\GraphMaker.bas
+		AdaptationTools2\VBA\Internals.bas = AdaptationTools2\VBA\Internals.bas
+		AdaptationTools2\VBA\Maths.bas = AdaptationTools2\VBA\Maths.bas
+		AdaptationTools2\VBA\SavedValues.bas = AdaptationTools2\VBA\SavedValues.bas
+		AdaptationTools2\VBA\Tools.bas = AdaptationTools2\VBA\Tools.bas
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Default = Debug|Default
+		Release|Any CPU = Release|Any CPU
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Debug|Default.Build.0 = Debug|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Release|Default.ActiveCfg = Release|Any CPU
+		{0F0DE655-50F8-4A0F-9630-95F97E1133B6}.Release|Default.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4A8B9C5-1AE1-4A57-A4DD-4D3FEF7E0A38}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Default = Debug|Default
+		Release|Any CPU = Release|Any CPU
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,4 +1,16 @@
-﻿Public Class ThisAddIn
+﻿Module PublicDeclartions
+    'Project-wide declarations
+
+    Public Const DBG As Boolean = True
+
+    Public AB As AboutBox
+    Public GMUI As GraphMaker
+    Public App As Word.Application
+
+End Module
+
+Public Class ThisAddIn
+
 
     Private Sub ThisAddIn_Startup() Handles Me.Startup
 
@@ -10,6 +22,8 @@
         'Doc.Range(0, 0).Text = "sam"
         'Doc = New Word.Document
         'Doc.Activate()
+
+
 
         If GMUI Is Nothing Then GMUI = New GraphMaker
         GMUI.Show()

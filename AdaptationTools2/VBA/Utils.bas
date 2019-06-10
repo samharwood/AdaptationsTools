@@ -66,6 +66,4 @@ Function RoundUp(val As Variant) As Integer
 End Function
 
 
-Function RoundTo(x, multiple)
-    RoundTo = Round(x / multiple) * multiple
-End Function
+

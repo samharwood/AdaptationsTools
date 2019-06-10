@@ -7,21 +7,7 @@ Attribute VB_Name = "Tools"
 ' Macro bindings for toolbars
 
 
-Sub SetCellMarginsForSelectedTables()
-' Set cell margins for selected tables
 
-    Dim t As Table
-    
-    For Each t In Selection.Tables
-        
-            t.TopPadding = CentimetersToPoints(0.2)
-            t.BottomPadding = CentimetersToPoints(0.2)
-            t.LeftPadding = CentimetersToPoints(0.2)
-            t.RightPadding = CentimetersToPoints(0.2)
-        
-    Next t
-
-End Sub
 
 Sub SymbolCode()
 ' Helper function
