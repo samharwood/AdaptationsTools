@@ -210,7 +210,7 @@
     <AppDesigner Include="My Project\" />
     <Compile Include="Common.vb" />
     <Compile Include="Display.vb" />
-    <None Include="AdaptationsTools_TemporaryKey.pfx" />
+    <None Include="AdaptationsTools_2_TemporaryKey.pfx" />
     <None Include="DISABLED.vb" />
     <Compile Include="Maths.vb" />
     <Compile Include="PasteOCR.vb" />
@@ -302,19 +302,20 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>AdaptationsTools_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>AdaptationsTools_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1FDD52D14A3F1C4B49DBF6F576E63FF2B1D68183</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>BE9E139713EFD2A6F616E3A0C53299D501F5F5F3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>AdaptationsTools_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <!-- Include the build rules for a Visual Basic project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
