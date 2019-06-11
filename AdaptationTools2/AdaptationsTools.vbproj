@@ -210,6 +210,7 @@
     <AppDesigner Include="My Project\" />
     <Compile Include="Common.vb" />
     <Compile Include="Display.vb" />
+    <None Include="AdaptationsTools_TemporaryKey.pfx" />
     <None Include="DISABLED.vb" />
     <Compile Include="Maths.vb" />
     <Compile Include="PasteOCR.vb" />
@@ -305,7 +306,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>0972830DF0BD90E25C06251A5DF242E29BFAB541</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>F72B272506D5277A4018F4EA9839DE12350EFA72</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
