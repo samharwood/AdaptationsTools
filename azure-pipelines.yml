@@ -23,6 +23,15 @@ steps:
 
 - task: VSBuild@1
   inputs:
+    solution: '**\*.sln'
+    vsVersion: '15.0'
+
+- task: MSBuild@1
+  inputs:
+    solution: '**/*.sln'
+
+- task: VSBuild@1
+  inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
