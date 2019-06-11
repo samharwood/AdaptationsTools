@@ -31,7 +31,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**\bin\$(BuildConfiguration)\\**'
+    Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: ArchiveFiles@2
