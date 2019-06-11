@@ -32,7 +32,15 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-    
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    vstsFeed: '9185268c-70e0-4e92-9dba-6836925194a0'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: '9185268c-70e0-4e92-9dba-6836925194a0'
+    versionOption: 'patch'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
