@@ -34,15 +34,7 @@ steps:
 
 - task: UniversalPackages@0
   inputs:
-    command: 'publish'
+    command: 'download'
+    downloadDirectory: '$(System.DefaultWorkingDirectory)'
+    feedsToUse: 'internal'
     vstsFeed: '9185268c-70e0-4e92-9dba-6836925194a0'
-    publishDirectory: '$(Build.ArtifactStagingDirectory)'
-    feedsToUsePublish: 'internal'
-    vstsFeedPublish: '9185268c-70e0-4e92-9dba-6836925194a0'
-    versionOption: 'patch'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
