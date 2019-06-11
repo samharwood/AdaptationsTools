@@ -210,7 +210,6 @@
     <AppDesigner Include="My Project\" />
     <Compile Include="Common.vb" />
     <Compile Include="Display.vb" />
-    <None Include="AdaptationsTools_2_TemporaryKey.pfx" />
     <None Include="DISABLED.vb" />
     <Compile Include="Maths.vb" />
     <Compile Include="PasteOCR.vb" />
