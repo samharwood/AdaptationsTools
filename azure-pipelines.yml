@@ -34,21 +34,6 @@ steps:
     Contents: '**\bin\$(BuildConfiguration)\\**'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/AdaptationsTools.zip'
-    replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
   inputs:
