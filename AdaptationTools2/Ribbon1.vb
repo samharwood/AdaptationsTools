@@ -16,24 +16,24 @@ Public Class Ribbon1
 "Prepare Maths for Large Print" & Strings.StrDup(30, " ")
 
         MathsToTextBtn.SuperTip =
-"Makes selected Equations/Maths match Normal font style And size
+"Makes currently selected Equations/Maths match Normal font style and size
 
-- Converts Equations to 'Text Equations'
-- Matches Normal font style And size.
-- Further enlarge sub/supscripts for visibility"
+- Converts Word Equations to 'Text' to allow font face to be changed.
+- Matches Normal font style and size.
+- Further enlarges sub/supscripts for visibility."
 
 
         MathsToBrailleBtn.ScreenTip =
 "Prepare Maths for MathType+Duxbury Brailling" & Strings.StrDup(30, " ")
 
         MathsToBrailleBtn.SuperTip =
-"Fix-up problems in selected Equations/Maths that can cause issues when Brailling in Duxbury using MathType
+"Fix-up problems in currently selected Word Equations/Maths that can cause issues when Brailling in Duxbury using MathType
 Run this before converting Word Equations to MathType Equations
 
-- Sets Equations to Inline type
-- Converts 'Text Equations' back to 'Normal Equations'
-- Removes spaces in Equations
-- Converts all dash/hyphen/etc characters into minus signs"
+- Sets Word Equations to Inline type.
+- Converts 'Text' Word Equations back to 'Normal' Word Equations.
+- Removes spaces in Word Equations.
+- Converts all dash/hyphen/etc characters into minus signs."
 
 
 

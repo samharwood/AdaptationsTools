@@ -252,22 +252,6 @@
       <DependentUpon>GraphMaker.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="publish\AdaptationsTools.vsto" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_1\AdaptationsTools.dll.config.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_1\AdaptationsTools.dll.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_1\AdaptationsTools.dll.manifest" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_1\AdaptationsTools.vsto" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_1\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_2\AdaptationsTools.dll.config.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_2\AdaptationsTools.dll.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_2\AdaptationsTools.dll.manifest" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_2\AdaptationsTools.vsto" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_2\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_3\AdaptationsTools.dll.config.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_3\AdaptationsTools.dll.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_3\AdaptationsTools.dll.manifest" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_3\AdaptationsTools.vsto" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_3\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy" />
     <None Include="SavedCtls.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>SavedCtls1.Designer.vb</LastGenOutput>
@@ -299,9 +283,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="publish\setup.exe" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
