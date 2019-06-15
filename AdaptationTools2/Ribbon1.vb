@@ -12,21 +12,28 @@ Public Class Ribbon1
         'TODO 
         ' Tips for all controls
 
-        MathsToTextBtn.ScreenTip = "Prepare Maths for Large Print" & Strings.StrDup(30, " ")
-        MathsToTextBtn.SuperTip =
-           ("Makes selected Equations/Maths match Normal font style and size" & vbCrLf & vbCrLf &
-            "- Converts Equations to 'Text Equations'" & vbCrLf &
-            "- Matches Normal font style and size." & vbCrLf &
-            "- Further enlarge sub/supscripts for visibility")
+        MathsToTextBtn.ScreenTip =
+"Prepare Maths for Large Print" & Strings.StrDup(30, " ")
 
-        MathsToBrailleBtn.ScreenTip = "Prepare Maths for MathType+Duxbury Brailling" & Strings.StrDup(30, " ")
+        MathsToTextBtn.SuperTip =
+"Makes selected Equations/Maths match Normal font style And size
+
+- Converts Equations to 'Text Equations'
+- Matches Normal font style And size.
+- Further enlarge sub/supscripts for visibility"
+
+
+        MathsToBrailleBtn.ScreenTip =
+"Prepare Maths for MathType+Duxbury Brailling" & Strings.StrDup(30, " ")
+
         MathsToBrailleBtn.SuperTip =
-           ("Fix-up problems in selected Equations/Maths that can cause issues when Brailling in Duxbury using MathType" & vbCrLf &
-            "Run this before converting Word Equations to MathType Equations" & vbCrLf & vbCrLf &
-            "- Sets Equations to Inline type" & vbCrLf &
-            "- Converts 'Text Equations' back to 'Normal Equations'" & vbCrLf &
-            "- Removes spaces in Equations" & vbCrLf &
-            "- Converts all dash/hyphen/etc characters into minus signs")
+"Fix-up problems in selected Equations/Maths that can cause issues when Brailling in Duxbury using MathType
+Run this before converting Word Equations to MathType Equations
+
+- Sets Equations to Inline type
+- Converts 'Text Equations' back to 'Normal Equations'
+- Removes spaces in Equations
+- Converts all dash/hyphen/etc characters into minus signs"
 
 
 
