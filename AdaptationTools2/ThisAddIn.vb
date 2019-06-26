@@ -25,9 +25,9 @@ Public Class ThisAddIn
 
 
 
-        If GMUI Is Nothing Then GMUI = New GraphMaker
-        GMUI.Show()
-        GMUI.Activate()
+        'If GMUI Is Nothing Then GMUI = New GraphMaker
+        'GMUI.Show()
+        'GMUI.Activate()
 
 
     End Sub
