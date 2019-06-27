@@ -11,6 +11,7 @@ Public Class Ribbon1
     Sub SetTips()
         'TODO 
         ' Tips for all controls
+        ' 
 
         MathsToTextBtn.ScreenTip =
 "Prepare Maths for Large Print" & Strings.StrDup(30, " ")
@@ -36,6 +37,11 @@ Run this before converting Word Equations to MathType Equations
 - Converts all dash/hyphen/etc characters into minus signs."
 
 
+        ThickenLinesBtn.ScreenTip =
+"Thicken outlines of selected shapes and table borders" & Strings.StrDup(30, " ")
+
+        ThickenLinesBtn.SuperTip =
+"Auto = in proportion to size of the Normal font style"
 
     End Sub
 
