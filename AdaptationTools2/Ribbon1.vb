@@ -43,6 +43,15 @@ Run this before converting Word Equations to MathType Equations
         ThickenLinesBtn.SuperTip =
 "Auto = in proportion to size of the Normal font style"
 
+
+        PasteFromPDF_Btn.ScreenTip =
+"Paste as plain text and fix-up common errors in text copied from a PDF file." & Strings.StrDup(30, " ")
+
+        PasteFromPDF_Btn.SuperTip =
+"- Remove line breaks from text wrapping at page edge.
+- Replace hyphen character with minus character
+- Remove 'fake' bullet points"
+
     End Sub
 
     Private Sub GraphMakerBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles GraphMakerBtn.Click
