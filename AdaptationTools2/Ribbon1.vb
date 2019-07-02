@@ -52,6 +52,15 @@ Run this before converting Word Equations to MathType Equations
 - Replace hyphen character with minus character
 - Remove 'fake' bullet points"
 
+
+        GraphMakerBtn.ScreenTip =
+"Quickly create accurate grids/graph layouts for Large Print/Raised diagrams" & Strings.StrDup(30, " ")
+
+        GraphMakerBtn.SuperTip =
+"- Specifiy basic configuration all in one place.
+- Option to generate numbering in UEB Braille.
+- Option to auto set line weight based on Normal style font size.
+- Option to save different settings per document"
     End Sub
 
     Private Sub GraphMakerBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles GraphMakerBtn.Click
