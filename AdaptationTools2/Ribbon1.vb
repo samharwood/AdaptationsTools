@@ -73,4 +73,7 @@ Run this before converting Word Equations to MathType Equations
         PrepLargePrintMaths()
     End Sub
 
+    Private Sub PasteFromPDF_Btn_Click(sender As Object, e As RibbonControlEventArgs) Handles PasteFromPDF_Btn.Click
+        PasteOCR()
+    End Sub
 End Class

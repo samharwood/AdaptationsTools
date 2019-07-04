@@ -1,4 +1,4 @@
-﻿Module PasteOCR
+﻿Module PasteFromPDF
 
     'TODO buttons and test PasteOCR, FixOCR and FixOCR_Ligatures
 
@@ -10,7 +10,7 @@
 
         PasteOCR_int()
 
-        objUndo.EndCustomRecord
+        objUndo.EndCustomRecord()
     End Sub
 
     Private Sub PasteOCR_int()
@@ -53,7 +53,7 @@ er:
         End Select
     End Sub
 
-    Sub FixOCR(r As Word.Range)
+    Private Sub FixOCR(r As Word.Range)
         ' Apply fix-ups for text that has been OCR'd or copied from PDF
 
         ' replace hyphens with minus
@@ -74,7 +74,7 @@ er:
 
     End Sub
 
-    Sub FixOCR_Ligatures()
+    Public Sub FixOCR_Ligatures()
         Dim objUndo As Word.UndoRecord
 
         objUndo = App.UndoRecord
@@ -86,9 +86,9 @@ er:
 
         FixOCR_Ligatures_int(rng)
 
-        rng.Select
+        rng.Select()
 
-        objUndo.EndCustomRecord
+        objUndo.EndCustomRecord()
     End Sub
 
     Private Sub FixOCR_Ligatures_int(r As Word.Range)
