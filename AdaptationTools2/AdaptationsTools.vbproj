@@ -29,12 +29,12 @@
     <DefineConstants>VSTO40</DefineConstants>
     <StartupObject>
     </StartupObject>
-    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <IsWebBootstrapper>True</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>publish\</PublishUrl>
-    <InstallUrl />
+    <InstallUrl>https://harwooduk.blob.core.windows.net/adaptationstools/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>0.0.0.21</ApplicationVersion>
+    <ApplicationVersion>0.0.0.22</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
