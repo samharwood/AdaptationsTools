@@ -34,9 +34,9 @@
     <PublishUrl>publish\</PublishUrl>
     <InstallUrl>https://harwooduk.blob.core.windows.net/adaptationstools/</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>0.0.0.22</ApplicationVersion>
+    <ApplicationVersion>0.0.0.24</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>AdaptationsTools</ProductName>
