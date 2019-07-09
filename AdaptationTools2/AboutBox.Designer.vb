@@ -67,11 +67,11 @@ Partial Class AboutBox
         'LabelProductName
         '
         Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelProductName.Location = New System.Drawing.Point(16, 0)
+        Me.LabelProductName.Location = New System.Drawing.Point(17, 0)
         Me.LabelProductName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
         Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 17)
         Me.LabelProductName.Name = "LabelProductName"
-        Me.LabelProductName.Size = New System.Drawing.Size(377, 17)
+        Me.LabelProductName.Size = New System.Drawing.Size(376, 17)
         Me.LabelProductName.TabIndex = 0
         Me.LabelProductName.Text = "Product Name"
         Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -79,11 +79,11 @@ Partial Class AboutBox
         'LabelVersion
         '
         Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelVersion.Location = New System.Drawing.Point(16, 25)
+        Me.LabelVersion.Location = New System.Drawing.Point(17, 25)
         Me.LabelVersion.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
         Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 17)
         Me.LabelVersion.Name = "LabelVersion"
-        Me.LabelVersion.Size = New System.Drawing.Size(377, 17)
+        Me.LabelVersion.Size = New System.Drawing.Size(376, 17)
         Me.LabelVersion.TabIndex = 0
         Me.LabelVersion.Text = "Version"
         Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -91,11 +91,11 @@ Partial Class AboutBox
         'LabelCopyright
         '
         Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCopyright.Location = New System.Drawing.Point(16, 50)
+        Me.LabelCopyright.Location = New System.Drawing.Point(17, 50)
         Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
         Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 17)
         Me.LabelCopyright.Name = "LabelCopyright"
-        Me.LabelCopyright.Size = New System.Drawing.Size(377, 17)
+        Me.LabelCopyright.Size = New System.Drawing.Size(376, 17)
         Me.LabelCopyright.TabIndex = 0
         Me.LabelCopyright.Text = "Copyright"
         Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -103,13 +103,13 @@ Partial Class AboutBox
         'TextBoxDescription
         '
         Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxDescription.Location = New System.Drawing.Point(16, 103)
+        Me.TextBoxDescription.Location = New System.Drawing.Point(17, 103)
         Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(6, 3, 3, 3)
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.ReadOnly = True
         Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxDescription.Size = New System.Drawing.Size(377, 123)
+        Me.TextBoxDescription.Size = New System.Drawing.Size(376, 123)
         Me.TextBoxDescription.TabIndex = 0
         Me.TextBoxDescription.TabStop = False
         Me.TextBoxDescription.Text = resources.GetString("TextBoxDescription.Text")
@@ -128,9 +128,9 @@ Partial Class AboutBox
         '
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LinkLabel2.Location = New System.Drawing.Point(13, 76)
+        Me.LinkLabel2.Location = New System.Drawing.Point(14, 76)
         Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(380, 24)
+        Me.LinkLabel2.Size = New System.Drawing.Size(379, 24)
         Me.LinkLabel2.TabIndex = 2
         Me.LinkLabel2.TabStop = True
         Me.LinkLabel2.Text = "https://dev.azure.com/samharwood/AdaptationsTools"

@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 
+
 Public NotInheritable Class AboutBox
 
     Private Sub AboutBox1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -15,7 +16,7 @@ Public NotInheritable Class AboutBox
         ' Customize the application's assembly information in the "Application" pane of the project 
         '    properties dialog (under the "Project" menu).
         Me.LabelProductName.Text = My.Application.Info.ProductName
-        Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
+        Me.LabelVersion.Text = String.Format("Version {0}", GetVersion())
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.TextBoxDescription.Text = My.Application.Info.Description
     End Sub
@@ -32,4 +33,16 @@ Public NotInheritable Class AboutBox
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         System.Diagnostics.Process.Start(sender.Text)
     End Sub
+
+    Private Function GetVersion() As String
+        If (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed) Then
+            Dim ver As Version
+            ver = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion
+            Return String.Format("{0}.{1}.{2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision)
+        Else
+            Return "Not Published"
+        End If
+    End Function
+
 End Class
+
