@@ -27,7 +27,7 @@
 
         Dim s As String
 
-        s = InputBox("Enter line thickness, leave blank for Auto", "Thicken Lines")
+        s = InputBox("Enter line thickness (leave blank to scale existing lines in proportion to size of the Normal font style)", "Thicken Lines")
         If s = vbNullString Then s = -1 'Indicates to use Auto size later
         If Not IsNumeric(s) Then Exit Sub
 

@@ -41,7 +41,7 @@ Run this before converting Word Equations to MathType Equations
 "Thicken outlines of selected shapes and table borders" & Strings.StrDup(30, " ")
 
         ThickenLinesBtn.SuperTip =
-"Auto = in proportion to size of the Normal font style"
+"Either to specific line weight or in proportion to size of the Normal font style"
 
 
         PasteFromPDF_Btn.ScreenTip =
