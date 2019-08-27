@@ -515,7 +515,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_2B6F0865C7E04E1D84C13A83DDE6AA9D"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][ProductName]"
+            "DefaultLocation" = "8:[LocalAppDataFolder]AdaptationsTools"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -564,13 +564,13 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Adaptations Tools"
         "ProductCode" = "8:{7CE98AD6-CBB5-4A7E-BA76-B5105D5344A1}"
-        "PackageCode" = "8:{F1DA024C-0ABE-40F4-A495-AC254CA183DB}"
+        "PackageCode" = "8:{F215056A-06A0-4307-8CBC-F8302C9BC6B7}"
         "UpgradeCode" = "8:{5CA96FD3-65BD-4CE4-9962-FAD6D39F932D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:FALSE"
-        "InstallAllUsers" = "11:TRUE"
+        "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Wakefield College"
         "ARPHELPTELEPHONE" = "8:"
@@ -616,25 +616,7 @@
             {
                 "Keys"
                 {
-                }
-            }
-            "HKCR"
-            {
-                "Keys"
-                {
-                }
-            }
-            "HKU"
-            {
-                "Keys"
-                {
-                }
-            }
-            "HKPU"
-            {
-                "Keys"
-                {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_D7BC5FBB1BD6427F9CEB16699F7C86C9"
+                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_12C4DC8ADC414C27870883418C7C6D73"
                     {
                     "Name" = "8:Software"
                     "Condition" = "8:"
@@ -750,6 +732,24 @@
                         {
                         }
                     }
+                }
+            }
+            "HKCR"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKPU"
+            {
+                "Keys"
+                {
                 }
             }
         }
@@ -893,7 +893,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:1"
+                            "Value" = "3:0"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }

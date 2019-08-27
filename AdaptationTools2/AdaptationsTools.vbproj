@@ -29,14 +29,14 @@
     <DefineConstants>VSTO40</DefineConstants>
     <StartupObject>
     </StartupObject>
-    <IsWebBootstrapper>True</IsWebBootstrapper>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>publish\</PublishUrl>
-    <InstallUrl>https://harwooduk.blob.core.windows.net/adaptationstools/</InstallUrl>
+    <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>0.0.0.25</ApplicationVersion>
+    <ApplicationVersion>0.0.0.27</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>AdaptationsTools</ProductName>
@@ -253,12 +253,6 @@
       <DependentUpon>GraphMaker.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="publish\AdaptationsTools.vsto" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_18\AdaptationsTools.dll.config.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_18\AdaptationsTools.dll.deploy" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_18\AdaptationsTools.dll.manifest" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_18\AdaptationsTools.vsto" />
-    <None Include="publish\Application Files\AdaptationsTools_0_0_0_18\Microsoft.Office.Tools.Common.v4.0.Utilities.dll.deploy" />
     <None Include="SavedCtls.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>SavedCtls1.Designer.vb</LastGenOutput>
@@ -290,9 +284,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="publish\setup.exe" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -326,6 +317,7 @@
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup />
   <!-- Include the build rules for a Visual Basic project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- Include additional build rules for an Office application add-in. -->
