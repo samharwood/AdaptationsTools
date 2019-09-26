@@ -27,7 +27,7 @@
 
         Dim s As String
 
-        s = InputBox("Enter line thickness (leave blank to scale existing lines in proportion to size of the Normal font style)", "Thicken Lines")
+        s = InputBox("Enter line thickness (leave blank to scale in proportion to size of the Normal font style)", "Thicken Lines")
         If s = vbNullString Then s = -1 'Indicates to use Auto size later
         If Not IsNumeric(s) Then Exit Sub
 
@@ -41,23 +41,23 @@
             ThickenLinesRecurse(r.InlineShapes(i), CSng(s))
         Next i
 
-        ' table borders
-        For i = 1 To r.Tables.Count
-            ThickenBordersRecurse(r.Tables(i), s)
-        Next i
+        'table borders
+        ThickenBorders(r, s)
+
 
     End Sub
 
-    Function ThickenBordersRecurse(t As Word.Table, lineWeight As Single)
+
+
+    Function ThickenBorders(sel As Word.Range, lineWeight As Single)
 
         If Not DBG Then On Error GoTo er
 
         Dim lw As Word.WdLineWidth
-
-        ' recurse
-        For i = 1 To t.Tables.Count
-            ThickenBordersRecurse(t.Tables(i), lineWeight)
-        Next i
+        Dim b As Word.Border
+        Dim c As Word.Cell
+        Dim t As Word.Table
+        Dim i As Integer
 
         If lineWeight >= 0 Then
 
@@ -88,9 +88,51 @@
             End Select
         End If
 
-        For i = -8 To -1 'border edges
-            If t.Borders(i).Visible Then t.Borders(i).LineWidth = lw
-        Next i
+        ' TODO: poss to check if whole table contains no invisible lines, and just process whole thing in one go (common case)??
+        ' the below works
+        ' 2nd attempt: try to make a single loop that uses fast path but deals with mixed errors as they occur?
+        i = 1
+        Dim mixed As Boolean
+
+        ' check for any mixed borders
+        For Each t In sel.Tables
+            For Each b In t.Borders
+                If b.LineWidth = -1 Then
+                    mixed = True
+                    Exit For
+                End If
+            Next
+        Next
+
+
+        If mixed Then
+            ' slow path: check each border of each cell
+            For Each t In sel.Tables
+                For Each c In t.Range.Cells
+                    For Each b In c.Range.Borders
+                        ' If c.Range.InRange(sel) And b.Visible Then b.LineWidth = lw ' only affect cells in Selection, doesn't work for discontinuous selections
+                        If b.Visible Then b.LineWidth = lw
+                    Next b
+                Next
+            Next
+        Else
+            ' fast path: just set every border - will error if any are mixed
+            For Each t In sel.Tables
+                For Each b In t.Borders
+                    If b.Visible Then b.LineWidth = lw
+                Next
+            Next
+        End If
+
+        'original code (slow path)
+        'For Each t In sel.Tables
+        '    For Each c In t.Range.Cells
+        '        For Each b In c.Range.Borders
+        '            ' If c.Range.InRange(sel) And b.Visible Then b.LineWidth = lw ' only affect cells in Selection, doesn't work for discontinuous selections
+        '            If b.Visible Then b.LineWidth = lw
+        '        Next b
+        '    Next
+        'Next
 
 
         Exit Function
