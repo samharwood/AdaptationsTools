@@ -7,6 +7,7 @@
     Public GMUI As GraphMaker
     Public App As Word.Application
 
+
 End Module
 
 Public Class ThisAddIn
@@ -16,7 +17,6 @@ Public Class ThisAddIn
 
         'Set Public variable App to access this instance of Application 
         App = Application
-
         'for testing
         'Doc = Application.ActiveDocument
         'Doc.Range(0, 0).Text = "sam"

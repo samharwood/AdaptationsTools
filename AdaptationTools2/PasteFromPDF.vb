@@ -21,7 +21,7 @@
         Dim svEnd As Integer
 
         ' Record selected range start and end as it gets erased by various modifications.
-        r = App.ActiveDocument.Selection.Range
+        r = App.Selection.Range
         svStart = r.Start
         svEnd = r.End
 
@@ -48,6 +48,8 @@ er:
                 ' 5342 can't paste this datatype as plain text, use default
                 r.Paste()
                 Resume Next
+            Case 438 'no selection
+                Exit Sub
             Case Else
                 Err.Raise(Err.Number, Err.Source, Err.Description)
         End Select

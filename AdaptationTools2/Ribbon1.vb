@@ -5,8 +5,10 @@ Public Class Ribbon1
     Private Sub Ribbon1_Load(sender As Object, e As RibbonUIEventArgs) Handles Me.Load
         SetTips()
 
-
     End Sub
+
+
+
 
     Sub SetTips()
         'TODO 
@@ -85,7 +87,7 @@ Run this before converting Word Equations to MathType Equations
         ToggleTextBoundaries()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As RibbonControlEventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As RibbonControlEventArgs)
         ReplaceWrongDash(SelectionToRange)
     End Sub
 
