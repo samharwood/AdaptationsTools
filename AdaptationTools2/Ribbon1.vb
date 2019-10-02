@@ -13,7 +13,7 @@ Public Class Ribbon1
 
 
     Sub SetTips()
-        'TODO 
+        ' 
         ' Tips for all controls
         ' 
 

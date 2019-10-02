@@ -147,8 +147,7 @@ er:
             Next c
 
             f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-            f.Frac.Parent.Range.Font.Size = supsize 'Fractions (that stand alone?)
-            f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
+            If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
 
         Next i
         Exit Sub
@@ -191,9 +190,6 @@ er:
             .MatchWildcards = False
             .Wrap = Word.WdFindWrap.wdFindStop
         End With
-
-
-
 
         'make superscripts bigger
         r.Find.Font.Superscript = True
