@@ -47,8 +47,6 @@
 
     End Sub
 
-
-
     Function ThickenBorders(sel As Word.Range, lineWeight As Single)
 
         If Not DBG Then On Error GoTo er

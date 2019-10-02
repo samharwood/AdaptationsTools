@@ -15,8 +15,11 @@ Public Class ThisAddIn
 
     Private Sub ThisAddIn_Startup() Handles Me.Startup
 
-        'Set Public variable App to access this instance of Application 
-        App = Application
+        App = Application 'Set Public variable App to access this instance of Application 
+
+
+
+
         'for testing
         'Doc = Application.ActiveDocument
         'Doc.Range(0, 0).Text = "sam"

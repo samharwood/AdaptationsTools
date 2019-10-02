@@ -65,18 +65,13 @@ er:
 
         Dim shp As Word.Shape
 
-        'replace hyphens with minus
-        ReplaceWrongDash(r)
-
-        'process Math in main text
-        OMaths_to_Braille(r.OMaths)
+        OMaths_to_Braille(r.OMaths) 'process Math in main text
+        ReplaceWrongDash(r) 'replace hyphens with minus
 
         'process Math in Shapes
         For Each shp In r.ShapeRange
-
             'causes err 5917 if shape does not support attached text
             OMaths_to_Braille(shp.TextFrame.TextRange.OMaths)
-
         Next shp
 
         Exit Sub
@@ -97,13 +92,9 @@ er:
 
         App.System.Cursor = Word.WdCursorType.wdCursorWait
 
-
-        ' process normal text
-        OMaths_to_TextMath(r.OMaths)
-
-        'replace hyphens with minus (do after converting to textmath)
-        ReplaceWrongDash(r)
-
+        OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
+        ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
+        ReplaceXwithMultiply(r)
         IncreaseSuperscripts(r)
 
         ' Increase Math in Shapes
@@ -111,8 +102,7 @@ er:
             IncreaseMathInShapes(r.ShapeRange(i))
         Next i
 
-
-        ' clean up
+        ' Clean up
         App.System.Cursor = Word.WdCursorType.wdCursorNormal
 
         Exit Sub

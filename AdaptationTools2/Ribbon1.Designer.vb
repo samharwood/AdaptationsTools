@@ -44,11 +44,13 @@
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Group2 = Me.Factory.CreateRibbonGroup
-        Me.TextBoundariesChk = Me.Factory.CreateRibbonCheckBox
+        Me.Label1 = Me.Factory.CreateRibbonLabel
+        Me.ShowTbChk = Me.Factory.CreateRibbonCheckBox
         Me.Group4 = Me.Factory.CreateRibbonGroup
         Me.Group3 = Me.Factory.CreateRibbonGroup
         Me.AdTab1 = Me.Factory.CreateRibbonTab
         Me.Group1 = Me.Factory.CreateRibbonGroup
+        Me.ShowTabsChk = Me.Factory.CreateRibbonCheckBox
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GraphMakerBtn = Me.Factory.CreateRibbonButton
         Me.ThickenLinesBtn = Me.Factory.CreateRibbonButton
@@ -57,7 +59,6 @@
         Me.MathsToBrailleBtn = Me.Factory.CreateRibbonButton
         Me.AboutBtn = Me.Factory.CreateRibbonButton
         Me.HelpBtn = Me.Factory.CreateRibbonButton
-        Me.Label1 = Me.Factory.CreateRibbonLabel
         Me.Group2.SuspendLayout()
         Me.Group4.SuspendLayout()
         Me.Group3.SuspendLayout()
@@ -73,10 +74,15 @@
         Me.Group2.Label = "Info"
         Me.Group2.Name = "Group2"
         '
-        'TextBoundariesChk
+        'Label1
         '
-        Me.TextBoundariesChk.Label = "Text Boundaries"
-        Me.TextBoundariesChk.Name = "TextBoundariesChk"
+        Me.Label1.Label = "Not Published"
+        Me.Label1.Name = "Label1"
+        '
+        'ShowTbChk
+        '
+        Me.ShowTbChk.Label = "Show Text Boundaries"
+        Me.ShowTbChk.Name = "ShowTbChk"
         '
         'Group4
         '
@@ -104,9 +110,15 @@
         '
         'Group1
         '
-        Me.Group1.Items.Add(Me.TextBoundariesChk)
+        Me.Group1.Items.Add(Me.ShowTbChk)
+        Me.Group1.Items.Add(Me.ShowTabsChk)
         Me.Group1.Label = "Display"
         Me.Group1.Name = "Group1"
+        '
+        'ShowTabsChk
+        '
+        Me.ShowTabsChk.Label = "Show Tabs"
+        Me.ShowTabsChk.Name = "ShowTabsChk"
         '
         'ImageList1
         '
@@ -169,11 +181,6 @@
         Me.HelpBtn.Label = "Help"
         Me.HelpBtn.Name = "HelpBtn"
         '
-        'Label1
-        '
-        Me.Label1.Label = "Label1"
-        Me.Label1.Name = "Label1"
-        '
         'Ribbon1
         '
         Me.Name = "Ribbon1"
@@ -200,13 +207,14 @@
     Friend WithEvents GraphMakerBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents AdTab1 As Microsoft.Office.Tools.Ribbon.RibbonTab
     Friend WithEvents ThickenLinesBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
-    Friend WithEvents TextBoundariesChk As Microsoft.Office.Tools.Ribbon.RibbonCheckBox
+    Friend WithEvents ShowTbChk As Microsoft.Office.Tools.Ribbon.RibbonCheckBox
     Friend WithEvents Group1 As Microsoft.Office.Tools.Ribbon.RibbonGroup
     Friend WithEvents MathsToTextBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents MathsToBrailleBtn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents ImageList1 As Windows.Forms.ImageList
     Friend WithEvents PasteFromPDF_Btn As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Label1 As Microsoft.Office.Tools.Ribbon.RibbonLabel
+    Friend WithEvents ShowTabsChk As Microsoft.Office.Tools.Ribbon.RibbonCheckBox
 End Class
 
 Partial Class ThisRibbonCollection
