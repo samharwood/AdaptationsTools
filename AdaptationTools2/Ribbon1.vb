@@ -5,8 +5,10 @@ Public Class Ribbon1
     Private Sub Ribbon1_Load(sender As Object, e As RibbonUIEventArgs) Handles Me.Load
         SetTips()
 
+        ' Set UI to match Application state
+        ShowTabsChk.Checked = Globals.ThisAddIn.Application.ActiveWindow.View.ShowTabs
+        ShowTbChk.Checked = Globals.ThisAddIn.Application.ActiveWindow.View.ShowTextBoundaries
     End Sub
-
 
 
 
@@ -83,9 +85,7 @@ Run this before converting Word Equations to MathType Equations
         ThickenLines()
     End Sub
 
-    Private Sub TextBoundariesChk_Click(sender As Object, e As RibbonControlEventArgs) Handles TextBoundariesChk.Click
-        ToggleTextBoundaries()
-    End Sub
+
 
     Private Sub Button1_Click(sender As Object, e As RibbonControlEventArgs)
         ReplaceWrongDash(SelectionToRange)
@@ -102,4 +102,24 @@ Run this before converting Word Equations to MathType Equations
     Private Sub PasteFromPDF_Btn_Click(sender As Object, e As RibbonControlEventArgs) Handles PasteFromPDF_Btn.Click
         PasteOCR()
     End Sub
+
+    ' Display
+    Private Sub ShowTabsChk_Click(sender As Object, e As RibbonControlEventArgs) Handles ShowTabsChk.Click
+        ToggleProperty(App.ActiveWindow.View.ShowTabs, ShowTabsChk)
+    End Sub
+
+    Private Sub ShowTbChk_Click(sender As Object, e As RibbonControlEventArgs) Handles ShowTbChk.Click
+        ToggleProperty(App.ActiveWindow.View.ShowTextBoundaries, ShowTbChk)
+    End Sub
+
+    Sub ToggleProperty(ByRef p As Word.WdBuiltInProperty, ByRef chk As RibbonCheckBox)
+        If p = True Then
+            p = False
+            chk.Checked = False
+        Else
+            p = True
+            chk.Checked = True
+        End If
+    End Sub
+
 End Class
