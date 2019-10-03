@@ -123,6 +123,7 @@ er:
 
     End Sub
 
+
     Sub ReplaceXwithMultiply(ByRef r As Word.Range)
         ' Replace the letter X with proper multiply sign
         FindReplace(" x ", " " & ChrW(&HD7) & " ", r, False)
