@@ -85,9 +85,10 @@
             End Select
         End If
 
-        ' TODO: poss to check if whole table contains no invisible lines, and just process whole thing in one go (common case)??
-        ' the below works
+        ' TODO: 
+        ' 
         ' 2nd attempt: try to make a single loop that uses fast path but deals with mixed errors as they occur?
+
         i = 1
         Dim mixed As Boolean
 
@@ -104,16 +105,32 @@
 
         If mixed Then
             ' slow path: check each border of each cell
-            For Each t In sel.Tables
-                For Each c In t.Range.Cells
-                    For Each b In c.Range.Borders
-                        ' If c.Range.InRange(sel) And b.Visible Then b.LineWidth = lw ' only affect cells in Selection, doesn't work for discontinuous selections
-                        If b.Visible Then b.LineWidth = lw
-                    Next b
-                Next
+
+            ' TODO works for one table, make work for selection containing multiple tables
+            ' TODO use something other than Highlight
+
+            ' NOTES: 
+            ' Have to Highlight cells we want to process as .Cells collection doesn't work right
+            ' Have to extend selection to make it work properly unless selection extends pass end of table
+            ' 
+            sel.HighlightColorIndex = Word.WdColorIndex.wdTeal
+            sel.End = sel.End + 1 'Extend to include hidden Carriage Return (i think)
+            If sel.End > sel.Tables(1).Range.End Then sel.End = sel.Tables(1).Range.End
+
+            For Each c In sel.Cells
+                For Each b In c.Borders
+
+                    If c.Range.HighlightColorIndex = Word.WdColorIndex.wdTeal _
+                        And b.Visible Then b.LineWidth = lw
+                Next b
             Next
+
+            sel.End = sel.End - 1
+            sel.HighlightColorIndex = Word.WdColorIndex.wdNoHighlight
+
         Else
             ' fast path: just set every border - will error if any are mixed
+
             For Each t In sel.Tables
                 For Each b In t.Borders
                     If b.Visible Then b.LineWidth = lw
