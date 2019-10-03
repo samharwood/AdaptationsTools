@@ -94,11 +94,14 @@ er:
 
         App.System.Cursor = Word.WdCursorType.wdCursorWait
 
-        OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
-        ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
-        ReplaceXwithMultiply(r)
-        ReplaceColonSpacesWithHardspaces(r)
-        IncreaseTextSuperscripts(r)
+
+        ' process normal text
+        OMaths_to_TextMath(r.OMaths)
+
+        'replace hyphens with minus (do after converting to textmath)
+        ReplaceWrongDash(r)
+
+        IncreaseSuperscripts(r)
 
         ' Increase Math in Shapes
         For i = 1 To r.ShapeRange.Count
