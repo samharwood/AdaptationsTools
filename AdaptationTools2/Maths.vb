@@ -67,6 +67,8 @@ er:
 
         OMaths_to_Braille(r.OMaths) 'process Math in main text
         ReplaceWrongDash(r) 'replace hyphens with minus
+        ReplaceXwithMultiply(r)
+        ReplaceColonSpacesWithHardspaces(r)
 
         'process Math in Shapes
         For Each shp In r.ShapeRange
@@ -95,7 +97,8 @@ er:
         OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
         ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
         ReplaceXwithMultiply(r)
-        IncreaseSuperscripts(r)
+        ReplaceColonSpacesWithHardspaces(r)
+        IncreaseTextSuperscripts(r)
 
         ' Increase Math in Shapes
         For i = 1 To r.ShapeRange.Count
@@ -124,7 +127,10 @@ er:
         Dim g As Word.OMathFunction
         Dim j As Word.OMath
         Dim c As Word.Range
-        Dim i As Integer
+        Dim i, k As Integer
+        Dim om As Word.OMath
+        Dim oms As Word.OMaths
+        Dim fn As Word.OMathFunction
         Dim supNormal, supAdd, supsize As Integer
 
 
@@ -134,6 +140,24 @@ er:
         supsize = supNormal + 6 + supAdd
 
 
+        'For Each om In o.Range.OMaths
+        '    For Each f In om.Functions
+        '        f.Frac.Den.Range.Font.Size = supsize
+        '        f.Frac.Num.Range.Font.Size = supsize
+        '        f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
+        '        If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
+        '    Next
+        'Next
+
+        'TODO in progress attempting to find nested functions
+
+        'For Each f In o.Functions
+        '    For Each om In f.OMath.Range.OMaths
+        '        If (om.NestingLevel > o.NestingLevel) Then IncreaseOMathSupercripts(om)
+        '    Next
+        'Next
+
+
         For i = 1 To o.Functions.Count
 
             f = o.Functions(i)
@@ -141,13 +165,19 @@ er:
             'Fractions in Functions
             ' Can't increase Fraction size independent of rest of Function,
             ' so have to just increase Num/Den which makes fraction line spacing visually untidy
-            For Each c In f.Range.Characters
+            For Each c In o.Range.Characters
+                k = c.OMaths(1).NestingLevel
                 c.OMaths(1).Functions(1).Frac.Den.Range.Font.Size = supsize
                 c.OMaths(1).Functions(1).Frac.Num.Range.Font.Size = supsize
+                c.OMaths(1).Functions(1).ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
+                If c.OMaths(1).Functions(1).Rad.HideDeg = 0 Then c.OMaths(1).Functions(1).Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
             Next c
 
-            f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-            If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
+            'f.Frac.Den.Range.Font.Size = supsize
+            'f.Frac.Num.Range.Font.Size = supsize
+            'f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
+            'If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
+
 
         Next i
         Exit Sub
@@ -161,7 +191,7 @@ er:
         End Select
     End Sub
 
-    Private Sub IncreaseSuperscripts(r As Word.Range)
+    Private Sub IncreaseTextSuperscripts(r As Word.Range)
         ' further increase sub/supscripts
         ' normal size + 6 + (2 for every 18pt)
         ' this function is very slow when called repeatedly. Therefore it is not used within Shapes code.
@@ -245,7 +275,7 @@ er:
             If shp.TextFrame.HasText Then
                 ' Only do Word.OMath. Because IncreaseSuperscripts is very slow on many shapes
                 OMaths_to_TextMath(shp.TextFrame.TextRange.OMaths)
-                IncreaseSuperscripts(shp.TextFrame.TextRange)
+                IncreaseTextSuperscripts(shp.TextFrame.TextRange)
             End If
         End If
 

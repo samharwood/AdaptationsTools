@@ -127,4 +127,9 @@ er:
         ' Replace the letter X with proper multiply sign
         FindReplace(" x ", " " & ChrW(&HD7) & " ", r, False)
     End Sub
+
+    Sub ReplaceColonSpacesWithHardspaces(ByRef r As Word.Range)
+        ' Surround Ratio colon with hardspace to keep together on page
+        FindReplace(" : ", ChrW(&HA0) & ":" & ChrW(&HA0), r, False)
+    End Sub
 End Module
