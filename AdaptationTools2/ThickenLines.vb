@@ -27,8 +27,7 @@
 
         Dim s As String
 
-        s = InputBox("Enter line thickness (leave blank to scale in proportion to size of the Normal font style)", "Thicken Lines")
-        If s = vbNullString Then s = -1 'Indicates to use Auto size later
+        s = InputBox("Enter line thickness or 0 to scale in proportion to size of the Normal font style", "Thicken Lines", "0")
         If Not IsNumeric(s) Then Exit Sub
 
         ' floating shapes
@@ -57,7 +56,7 @@
         Dim t As Word.Table
         Dim i As Integer
 
-        If lineWeight >= 0 Then
+        If lineWeight > 0 Then
 
             Select Case lineWeight
                 Case Is >= 6 : lw = Word.WdLineWidth.wdLineWidth600pt
@@ -155,7 +154,7 @@ er:
         Else
             If shp.Line.Visible = False Then Exit Sub
 
-            If lineWeight >= 0 Then
+            If lineWeight > 0 Then
                 shp.Line.Weight = lineWeight
             Else
                 ' thicken lines to Normal/6
