@@ -117,20 +117,13 @@ er:
         End Select
     End Sub
 
-    Private Sub IncreaseOMathSupercripts(o As Word.OMath)
+    Private Sub IncreaseOMathElements(fns As Word.OMathFunctions)
         'further enlarge fractions and sub/supscripts in Word.OMath objects
 
         On Error GoTo er
 
         Dim f As Word.OMathFunction
-        Dim a As Word.OMath
-        Dim g As Word.OMathFunction
-        Dim j As Word.OMath
-        Dim c As Word.Range
         Dim i, k As Integer
-        Dim om As Word.OMath
-        Dim oms As Word.OMaths
-        Dim fn As Word.OMathFunction
         Dim supNormal, supAdd, supsize As Integer
 
 
@@ -140,46 +133,37 @@ er:
         supsize = supNormal + 6 + supAdd
 
 
-        'For Each om In o.Range.OMaths
-        '    For Each f In om.Functions
-        '        f.Frac.Den.Range.Font.Size = supsize
-        '        f.Frac.Num.Range.Font.Size = supsize
-        '        f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-        '        If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
-        '    Next
-        'Next
+        For Each f In fns
 
-        'TODO in progress attempting to find nested functions
+            Select Case f.Type
+                Case Word.WdOMathFunctionType.wdOMathFunctionDelim 'brackets
+                    For i = 1 To f.Delim.E.Count
+                        IncreaseOMathElements(f.Delim.E.Item(i).Functions) 'functions in brackets
+                    Next i
 
-        'For Each f In o.Functions
-        '    For Each om In f.OMath.Range.OMaths
-        '        If (om.NestingLevel > o.NestingLevel) Then IncreaseOMathSupercripts(om)
-        '    Next
-        'Next
+                Case Word.WdOMathFunctionType.wdOMathFunctionFrac
+                    IncreaseOMathElements(f.Frac.Den.Functions)
+                    IncreaseOMathElements(f.Frac.Num.Functions)
+                    f.Frac.Den.Range.Font.Size = supsize
+                    f.Frac.Num.Range.Font.Size = supsize
 
+                Case Word.WdOMathFunctionType.wdOMathFunctionScrSub
+                    IncreaseOMathElements(f.ScrSub.E.Functions) 'base of script could contain more functions
+                    f.ScrSub.Sub.Range.Font.Size = supsize
 
-        For i = 1 To o.Functions.Count
+                Case Word.WdOMathFunctionType.wdOMathFunctionScrSup
+                    IncreaseOMathElements(f.ScrSup.E.Functions) 'base of script could contain more functions
+                    f.ScrSup.Sup.Range.Font.Size = supsize
 
-            f = o.Functions(i)
+                Case Word.WdOMathFunctionType.wdOMathFunctionRad
+                    IncreaseOMathElements(f.Rad.E.Functions) 'base of radical could contain more functions
+                    If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'only enlarge radicals with degree e.g. cube root
 
-            'Fractions in Functions
-            ' Can't increase Fraction size independent of rest of Function,
-            ' so have to just increase Num/Den which makes fraction line spacing visually untidy
-            For Each c In o.Range.Characters
-                k = c.OMaths(1).NestingLevel
-                c.OMaths(1).Functions(1).Frac.Den.Range.Font.Size = supsize
-                c.OMaths(1).Functions(1).Frac.Num.Range.Font.Size = supsize
-                c.OMaths(1).Functions(1).ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-                If c.OMaths(1).Functions(1).Rad.HideDeg = 0 Then c.OMaths(1).Functions(1).Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
-            Next c
+            End Select
 
-            'f.Frac.Den.Range.Font.Size = supsize
-            'f.Frac.Num.Range.Font.Size = supsize
-            'f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-            'If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
+        Next
 
 
-        Next i
         Exit Sub
 
 er:
@@ -288,32 +272,6 @@ er:
         End Select
     End Sub
 
-    Private Sub IncreaseOMathElements(o As Word.OMath)
-        'enlarge certain smaller Word.OMath objects
-
-
-        Dim f As Word.OMathFunction
-        Dim supNormal, supAdd, supsize As Integer
-
-        'size + 6 + (2 for every 18pt)
-        supNormal = App.ActiveDocument.Styles("Normal").Font.Size
-        supAdd = Int(supNormal / 18) * 2 '+2 for every 18pt
-        supsize = supNormal + 6 + supAdd
-
-        On Error Resume Next
-
-        For Each f In o.Functions
-
-            Select Case f.Type
-                Case Word.WdOMathFunctionType.wdOMathFunctionFrac 'fractions
-                    f.Range.Font.Size = supsize
-                Case Word.WdOMathFunctionType.wdOMathFunctionDelim 'brackets
-                    IncreaseOMathElements(f.Frac)
-            End Select
-
-        Next f
-
-    End Sub
 
     Private Sub OMaths_to_Braille(oms As Word.OMaths)
         ' -Convert 'Text Math' to 'Normal Math'
@@ -363,9 +321,7 @@ er:
             o.Range.Font.Size = App.ActiveDocument.Styles("Normal").Font.Size
 
 
-            IncreaseOMathSupercripts(o)
-            'IncreaseOMathElements o
-
+            IncreaseOMathElements(o.Functions)
 
             ' Fix spacing
             i = 1
