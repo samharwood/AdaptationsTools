@@ -140,24 +140,6 @@ er:
         supsize = supNormal + 6 + supAdd
 
 
-        'For Each om In o.Range.OMaths
-        '    For Each f In om.Functions
-        '        f.Frac.Den.Range.Font.Size = supsize
-        '        f.Frac.Num.Range.Font.Size = supsize
-        '        f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-        '        If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
-        '    Next
-        'Next
-
-        'TODO in progress attempting to find nested functions
-
-        'For Each f In o.Functions
-        '    For Each om In f.OMath.Range.OMaths
-        '        If (om.NestingLevel > o.NestingLevel) Then IncreaseOMathSupercripts(om)
-        '    Next
-        'Next
-
-
         For i = 1 To o.Functions.Count
 
             f = o.Functions(i)
@@ -172,11 +154,6 @@ er:
                 c.OMaths(1).Functions(1).ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
                 If c.OMaths(1).Functions(1).Rad.HideDeg = 0 Then c.OMaths(1).Functions(1).Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
             Next c
-
-            'f.Frac.Den.Range.Font.Size = supsize
-            'f.Frac.Num.Range.Font.Size = supsize
-            'f.ScrSup.Sup.Range.Font.Size = supsize 'Superscripts
-            'If f.Rad.HideDeg = 0 Then f.Rad.Deg.Range.Font.Size = supsize 'Radicals with degree e.g. cube root
 
 
         Next i
