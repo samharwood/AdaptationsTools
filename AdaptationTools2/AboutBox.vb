@@ -36,16 +36,6 @@ Public NotInheritable Class AboutBox
         System.Diagnostics.Process.Start(sender.Text)
     End Sub
 
-    Public Function GetVersion() As String
-        If (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed) Then
-            Dim ver As Version
-            ver = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion
-            Return String.Format("{0}.{1}.{2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision)
-        Else
-            Return "Not Published"
-        End If
-    End Function
-
     Public Function GetUpdateLocation() As String
         If (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed) Then
             Return System.Deployment.Application.ApplicationDeployment.CurrentDeployment.UpdateLocation.ToString

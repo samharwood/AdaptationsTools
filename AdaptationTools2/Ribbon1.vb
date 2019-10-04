@@ -8,9 +8,64 @@ Public Class Ribbon1
         ' Set UI to match Application state
         ShowTabsChk.Checked = Globals.ThisAddIn.Application.ActiveWindow.View.ShowTabs
         ShowTbChk.Checked = Globals.ThisAddIn.Application.ActiveWindow.View.ShowTextBoundaries
+        Label1.Label = String.Format("Version {0}", GetVersion())
     End Sub
 
 
+    'DRAWING TOOLS
+    Private Sub GraphMakerBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles GraphMakerBtn.Click
+
+        If GMUI Is Nothing Then GMUI = New GraphMaker
+        GMUI.Show()
+        GMUI.Activate()
+    End Sub
+
+    Private Sub ThickenLinesBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles ThickenLinesBtn.Click
+        ThickenLines()
+    End Sub
+
+
+    ' TEXT TOOLS
+    Private Sub PasteFromPDF_Btn_Click(sender As Object, e As RibbonControlEventArgs) Handles PasteFromPDF_Btn.Click
+        PasteOCR()
+    End Sub
+
+    Private Sub MathsToTextBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles MathsToTextBtn.Click
+        PrepLargePrintMaths()
+    End Sub
+
+    Private Sub MathsToBrailleBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles MathsToBrailleBtn.Click
+        PrepBrailleMaths()
+    End Sub
+
+
+    ' DISPLAY
+    Private Sub ShowTabsChk_Click(sender As Object, e As RibbonControlEventArgs) Handles ShowTabsChk.Click
+        ToggleProperty(App.ActiveWindow.View.ShowTabs, ShowTabsChk)
+    End Sub
+
+    Private Sub ShowTbChk_Click(sender As Object, e As RibbonControlEventArgs) Handles ShowTbChk.Click
+        ToggleProperty(App.ActiveWindow.View.ShowTextBoundaries, ShowTbChk)
+    End Sub
+
+    Sub ToggleProperty(ByRef p As Word.WdBuiltInProperty, ByRef chk As RibbonCheckBox)
+        If p = True Then
+            p = False
+            chk.Checked = False
+        Else
+            p = True
+            chk.Checked = True
+        End If
+    End Sub
+
+
+    ' INFO
+    Private Sub AboutBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles AboutBtn.Click
+
+        If AB Is Nothing Then AB = New AboutBox
+        AB.Show()
+        AB.Activate()
+    End Sub
 
     Sub SetTips()
         ' 
@@ -67,59 +122,6 @@ Run this before converting Word Equations to MathType Equations
 - Option to save different settings per document"
     End Sub
 
-    Private Sub GraphMakerBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles GraphMakerBtn.Click
-
-        If GMUI Is Nothing Then GMUI = New GraphMaker
-        GMUI.Show()
-        GMUI.Activate()
-    End Sub
-
-    Private Sub AboutBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles AboutBtn.Click
-
-        If AB Is Nothing Then AB = New AboutBox
-        AB.Show()
-        AB.Activate()
-    End Sub
-
-    Private Sub ThickenLinesBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles ThickenLinesBtn.Click
-        ThickenLines()
-    End Sub
-
-
-
-    Private Sub Button1_Click(sender As Object, e As RibbonControlEventArgs)
-        ReplaceWrongDash(SelectionToRange)
-    End Sub
-
-    Private Sub MathsToBrailleBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles MathsToBrailleBtn.Click
-        PrepBrailleMaths()
-    End Sub
-
-    Private Sub MathsToTextBtn_Click(sender As Object, e As RibbonControlEventArgs) Handles MathsToTextBtn.Click
-        PrepLargePrintMaths()
-    End Sub
-
-    Private Sub PasteFromPDF_Btn_Click(sender As Object, e As RibbonControlEventArgs) Handles PasteFromPDF_Btn.Click
-        PasteOCR()
-    End Sub
-
-    ' Display
-    Private Sub ShowTabsChk_Click(sender As Object, e As RibbonControlEventArgs) Handles ShowTabsChk.Click
-        ToggleProperty(App.ActiveWindow.View.ShowTabs, ShowTabsChk)
-    End Sub
-
-    Private Sub ShowTbChk_Click(sender As Object, e As RibbonControlEventArgs) Handles ShowTbChk.Click
-        ToggleProperty(App.ActiveWindow.View.ShowTextBoundaries, ShowTbChk)
-    End Sub
-
-    Sub ToggleProperty(ByRef p As Word.WdBuiltInProperty, ByRef chk As RibbonCheckBox)
-        If p = True Then
-            p = False
-            chk.Checked = False
-        Else
-            p = True
-            chk.Checked = True
-        End If
-    End Sub
-
 End Class
+
+
