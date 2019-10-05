@@ -97,53 +97,52 @@
         Dim r As Word.Range
         Dim mixed As Boolean
 
+
         For Each t In sel.Tables
             r = t.Range
             mixed = False
 
-            ' shrink range if partial selection
-            If sel.Start > r.Start Then r.Start = sel.Start
-            If sel.End < r.End Then r.End = sel.End
+            'If partial selection (+1 to Extend to include hidden Carriage Return)
+            If sel.End + 1 < r.End Or sel.Start > r.Start Then
+                ' Treat as mixed
+                mixed = True
+                ' Shrink working range
+                If sel.Start > r.Start Then r.Start = sel.Start
+                If sel.End + 1 < r.End Then r.End = sel.End
+            Else
+                ' Check for any mixed borders
+                For Each b In r.Borders
+                    If b.LineWidth = -1 Then
+                        mixed = True
+                        Exit For
+                    End If
+                Next
+            End If
 
-
-            ' check for any mixed borders
-            For Each b In r.Borders
-                If b.LineWidth = -1 Then
-                    mixed = True
-                    Exit For
-                End If
-            Next
-
-
-            r.HighlightColorIndex = Word.WdColorIndex.wdTeal
-            If r.End < r.Tables(1).Range.End Then r.End = r.End + 1 'Extend to include hidden Carriage Return (i think)
 
 
             If mixed Then
                 ' slow path: check each border of each cell
-
-                'If r.End > r.Tables(1).Range.End Then r.End = r.Tables(1).Range.End
+                r.HighlightColorIndex = Word.WdColorIndex.wdTeal
+                If r.End < r.Tables(1).Range.End Then r.End = r.End + 1 'Extend to include hidden Carriage Return
 
                 For Each c In r.Cells
                     For Each b In c.Borders
-
                         If c.Range.HighlightColorIndex = Word.WdColorIndex.wdTeal _
                             And b.Visible Then b.LineWidth = lw
                     Next b
                 Next
 
+                r.End = r.End - 1
+                r.HighlightColorIndex = Word.WdColorIndex.wdNoHighlight
+
             Else
-                ' fast path: just set every border - will error if any are mixed
-                For Each b In r.Tables(1).Borders
-                    'If b.Parent.HighlightColorIndex = Word.WdColorIndex.wdTeal _
+                ' fast path: set every border in whole table - will fail if any are mixed or partial selection
+                For Each b In t.Borders
                     If b.Visible Then b.LineWidth = lw
                 Next
 
             End If
-
-            r.HighlightColorIndex = Word.WdColorIndex.wdNoHighlight
-            r.End = r.End - 1
-
 
         Next
 
