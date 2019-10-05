@@ -1,9 +1,7 @@
 ﻿
 Module Common
     'TODO
-    ' .Copy Maths
     ' .Copy SavedValues
-    ' .Design Ribbon
 
 
     Function SelectionToRange() As Word.Range
@@ -123,7 +121,6 @@ er:
 
     End Sub
 
-
     Sub ReplaceXwithMultiply(ByRef r As Word.Range)
         ' Replace the letter X with proper multiply sign
         FindReplace(" x ", " " & ChrW(&HD7) & " ", r, False)
@@ -134,7 +131,6 @@ er:
         FindReplace(" : ", ChrW(&HA0) & ":" & ChrW(&HA0), r, False)
     End Sub
 
-
     Public Function GetVersion() As String
         If (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed) Then
             Dim ver As Version
@@ -144,6 +140,5 @@ er:
             Return "Not Published"
         End If
     End Function
-
 
 End Module

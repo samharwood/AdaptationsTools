@@ -178,7 +178,7 @@ er:
     Private Sub IncreaseTextSuperscripts(r As Word.Range)
         ' further increase sub/supscripts
         ' normal size + 6 + (2 for every 18pt)
-        ' this function is very slow when called repeatedly. Therefore it is not used within Shapes code.
+        'TODO: this function is very slow when called repeatedly. Therefore it is not used within Shapes code.
 
         Dim supsize As Integer
         Dim s As Integer
