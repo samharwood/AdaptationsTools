@@ -86,68 +86,66 @@
         End If
 
         ' TODO: 
-        ' 
+        ' TODO works for one table, make work for selection containing multiple tables
+        ' TODO use something other than Highlight
         ' 2nd attempt: try to make a single loop that uses fast path but deals with mixed errors as they occur?
 
-        i = 1
+        ' NOTES: 
+        ' Have to Highlight cells we want to process as .Cells collection doesn't work right
+        ' Have to extend selection to make it work properly unless selection extends pass end of table
+
+        Dim r As Word.Range
         Dim mixed As Boolean
 
-        ' check for any mixed borders
         For Each t In sel.Tables
-            For Each b In t.Borders
+            r = t.Range
+            mixed = False
+
+            ' shrink range if partial selection
+            If sel.Start > r.Start Then r.Start = sel.Start
+            If sel.End < r.End Then r.End = sel.End
+
+
+            ' check for any mixed borders
+            For Each b In r.Borders
                 If b.LineWidth = -1 Then
                     mixed = True
                     Exit For
                 End If
             Next
-        Next
 
 
-        If mixed Then
-            ' slow path: check each border of each cell
+            r.HighlightColorIndex = Word.WdColorIndex.wdTeal
+            If r.End < r.Tables(1).Range.End Then r.End = r.End + 1 'Extend to include hidden Carriage Return (i think)
 
-            ' TODO works for one table, make work for selection containing multiple tables
-            ' TODO use something other than Highlight
 
-            ' NOTES: 
-            ' Have to Highlight cells we want to process as .Cells collection doesn't work right
-            ' Have to extend selection to make it work properly unless selection extends pass end of table
-            ' 
-            sel.HighlightColorIndex = Word.WdColorIndex.wdTeal
-            sel.End = sel.End + 1 'Extend to include hidden Carriage Return (i think)
-            If sel.End > sel.Tables(1).Range.End Then sel.End = sel.Tables(1).Range.End
+            If mixed Then
+                ' slow path: check each border of each cell
 
-            For Each c In sel.Cells
-                For Each b In c.Borders
+                'If r.End > r.Tables(1).Range.End Then r.End = r.Tables(1).Range.End
 
-                    If c.Range.HighlightColorIndex = Word.WdColorIndex.wdTeal _
-                        And b.Visible Then b.LineWidth = lw
-                Next b
-            Next
+                For Each c In r.Cells
+                    For Each b In c.Borders
 
-            sel.End = sel.End - 1
-            sel.HighlightColorIndex = Word.WdColorIndex.wdNoHighlight
+                        If c.Range.HighlightColorIndex = Word.WdColorIndex.wdTeal _
+                            And b.Visible Then b.LineWidth = lw
+                    Next b
+                Next
 
-        Else
-            ' fast path: just set every border - will error if any are mixed
-
-            For Each t In sel.Tables
-                For Each b In t.Borders
+            Else
+                ' fast path: just set every border - will error if any are mixed
+                For Each b In r.Tables(1).Borders
+                    'If b.Parent.HighlightColorIndex = Word.WdColorIndex.wdTeal _
                     If b.Visible Then b.LineWidth = lw
                 Next
-            Next
-        End If
 
-        'original code (slow path)
-        'For Each t In sel.Tables
-        '    For Each c In t.Range.Cells
-        '        For Each b In c.Range.Borders
-        '            ' If c.Range.InRange(sel) And b.Visible Then b.LineWidth = lw ' only affect cells in Selection, doesn't work for discontinuous selections
-        '            If b.Visible Then b.LineWidth = lw
-        '        Next b
-        '    Next
-        'Next
+            End If
 
+            r.HighlightColorIndex = Word.WdColorIndex.wdNoHighlight
+            r.End = r.End - 1
+
+
+        Next
 
         Exit Function
 
