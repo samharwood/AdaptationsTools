@@ -85,10 +85,7 @@
             End Select
         End If
 
-        ' TODO: 
-        ' TODO works for one table, make work for selection containing multiple tables
         ' TODO use something other than Highlight
-        ' 2nd attempt: try to make a single loop that uses fast path but deals with mixed errors as they occur?
 
         ' NOTES: 
         ' Have to Highlight cells we want to process as .Cells collection doesn't work right
@@ -102,13 +99,13 @@
             r = t.Range
             mixed = False
 
-            'If partial selection (+1 to Extend to include hidden Carriage Return)
-            If sel.End + 1 < r.End Or sel.Start > r.Start Then
+            'If partial selection 
+            If Not r.InRange(sel) Then
                 ' Treat as mixed
                 mixed = True
                 ' Shrink working range
                 If sel.Start > r.Start Then r.Start = sel.Start
-                If sel.End + 1 < r.End Then r.End = sel.End
+                If sel.End < r.End Then r.End = sel.End
             Else
                 ' Check for any mixed borders
                 For Each b In r.Borders
@@ -124,7 +121,7 @@
             If mixed Then
                 ' slow path: check each border of each cell
                 r.HighlightColorIndex = Word.WdColorIndex.wdTeal
-                If r.End < r.Tables(1).Range.End Then r.End = r.End + 1 'Extend to include hidden Carriage Return
+                If r.End < r.Tables(1).Range.End Then r.End += 1 'Extend to include hidden Carriage Return
 
                 For Each c In r.Cells
                     For Each b In c.Borders
@@ -133,7 +130,7 @@
                     Next b
                 Next
 
-                r.End = r.End - 1
+                r.End -= 1
                 r.HighlightColorIndex = Word.WdColorIndex.wdNoHighlight
 
             Else
