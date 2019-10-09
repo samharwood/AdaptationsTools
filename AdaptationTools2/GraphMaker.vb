@@ -197,7 +197,7 @@ Public Class GraphMaker
     ' == Create Graph
 
     Friend Sub CreatGraph()
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim objUndo As Word.UndoRecord
         objUndo = App.UndoRecord
@@ -295,7 +295,7 @@ er:
 
     Sub PlotChart()
 
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim s As Word.Shape
         Dim c As Word.Chart
@@ -466,7 +466,7 @@ er:
 
     Sub PlotX_Major()
 
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim shpLine As Word.Shape
         Dim shpGroup As Word.Shape
@@ -520,7 +520,7 @@ er:
     End Sub
 
     Sub PlotY_Major()
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim shpLine As Word.Shape
         Dim shpGroup As Word.Shape
@@ -578,7 +578,7 @@ er:
     End Sub
 
     Sub PlotX_Minor()
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim shpLine As Word.Shape
         Dim shpGroup As Word.Shape
@@ -620,7 +620,7 @@ er:
     End Sub
 
     Sub PlotY_Minor()
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim shpLine As Word.Shape
         Dim shpGroup As Word.Shape
@@ -666,7 +666,7 @@ er:
 
     Sub PlotX_Numbers()
 
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim shp As Word.Shape
         Dim shpGroup As Word.Shape
@@ -718,7 +718,7 @@ er:
     End Sub
 
     Sub PlotY_Numbers()
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim shp As Word.Shape
         Dim shpGroup As Word.Shape

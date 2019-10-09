@@ -1,7 +1,7 @@
 ﻿Module PublicDeclartions
     'Project-wide declarations
 
-    Public Const DBG As Boolean = True
+    Public Const DEBUG As Boolean = True
 
     Public AB As AboutBox
     Public GMUI As GraphMaker

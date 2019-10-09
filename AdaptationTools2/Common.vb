@@ -62,7 +62,7 @@ Module Common
         ' recurse = true: loops until no more matches are found, use when the replacement text may create new matches.
         '           false: loops once and stops, even if the changes made create a new match for the pattern.
         '
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim matchesfound As Boolean
 

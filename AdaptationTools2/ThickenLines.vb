@@ -48,7 +48,7 @@
 
     Function ThickenBorders(sel As Word.Range, lineWeight As Single)
 
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         Dim lw As Word.WdLineWidth
         Dim b As Word.Border
@@ -154,7 +154,7 @@ er:
 
     Sub ThickenLinesRecurse(shp As Word.Shape, lineWeight As Single)
 
-        If Not DBG Then On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         If shp.Type = Office.MsoShapeType.msoGroup Then
             ' recurse into groups

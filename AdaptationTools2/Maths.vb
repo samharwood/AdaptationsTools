@@ -92,13 +92,17 @@ er:
 
         On Error GoTo er
 
+
+
         App.System.Cursor = Word.WdCursorType.wdCursorWait
 
-        OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
-        ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
-        ReplaceXwithMultiply(r)
-        ReplaceColonSpacesWithHardspaces(r)
-        IncreaseTextSuperscripts(r)
+        If r.Text IsNot Nothing Then
+            OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
+            ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
+            ReplaceXwithMultiply(r)
+            ReplaceColonSpacesWithHardspaces(r)
+            IncreaseTextSuperscripts(r)
+        End If
 
         ' Increase Math in Shapes
         For i = 1 To r.ShapeRange.Count
@@ -246,11 +250,11 @@ er:
 
     Private Sub IncreaseMathInShapes(shp As Word.Shape)
 
-        On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         If shp.Type = Office.MsoShapeType.msoGroup Then
-            ' recurse into groups
-            For i = 1 To shp.GroupItems.Count
+            ' recurse into groups (Capped to avoid crashing. OOM?)
+            For i = 1 To Math.Min(shp.GroupItems.Count, 80)
                 IncreaseMathInShapes(shp.GroupItems(i))
             Next i
 
