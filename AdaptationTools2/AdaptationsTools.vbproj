@@ -90,7 +90,7 @@
       Warning level for the compiler.
   -->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>$(DefineConstants)</DefineConstants>
+    <DefineConstants>VSTO40</DefineConstants>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <DebugType>full</DebugType>
@@ -211,9 +211,7 @@
   <ItemGroup>
     <AppDesigner Include="My Project\" />
     <Compile Include="Common.vb" />
-    <Compile Include="Display.vb" />
     <None Include="AdaptationsTools_TemporaryKey.pfx" />
-    <None Include="DISABLED.vb" />
     <Compile Include="Maths.vb" />
     <Compile Include="PasteFromPDF.vb" />
     <Compile Include="Ribbon1.Designer.vb">

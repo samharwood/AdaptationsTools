@@ -1,4 +1,6 @@
-﻿Module Maths
+﻿Imports Microsoft.Office.Interop.Word
+
+Module Maths
 
     Sub PrepBrailleMaths()
         ' Fix up Equation Editor Braille Math ready for converting to MathType for Brailling.
@@ -88,17 +90,23 @@ er:
         End Select
     End Sub
 
+
     Private Sub PrepLargePrintMaths_int(r As Word.Range)
 
         On Error GoTo er
 
+
+
         App.System.Cursor = Word.WdCursorType.wdCursorWait
 
-        OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
-        ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
-        ReplaceXwithMultiply(r)
-        ReplaceColonSpacesWithHardspaces(r)
-        IncreaseTextSuperscripts(r)
+        If r.Text IsNot Nothing Then
+            ConvertTextFractionToMath(r)
+            OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
+            ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
+            ReplaceXwithMultiply(r)
+            ReplaceColonSpacesWithHardspaces(r)
+            IncreaseTextSuperscripts(r)
+        End If
 
         ' Increase Math in Shapes
         For i = 1 To r.ShapeRange.Count
@@ -178,7 +186,7 @@ er:
     Private Sub IncreaseTextSuperscripts(r As Word.Range)
         ' further increase sub/supscripts
         ' normal size + 6 + (2 for every 18pt)
-        ' this function is very slow when called repeatedly. Therefore it is not used within Shapes code.
+        'TODO: this function is very slow when called repeatedly. Therefore it is not used within Shapes code.
 
         Dim supsize As Integer
         Dim s As Integer
@@ -244,13 +252,37 @@ er:
 
     End Sub
 
+    Private Sub ConvertTextFractionToMath(r As Range)
+        ' Find / surrounded by digits and expand to nearest space or newline
+        ' Replace with OMath stacked fraction
+
+        r.Find.Text = "^#/^#"
+        r.Find.MatchWildcards = False
+        Dim tmp As Word.Range
+        Dim p As Integer
+
+        Do While r.Find.Execute(Forward:=True) = True
+            tmp = r
+            p = tmp.MoveEndUntil(" " & vbCrLf)
+            If p > tmp.End Then tmp.End = p '-1 not found & sanity check 
+            p = tmp.MoveStartUntil(" " & vbCrLf, Word.WdConstants.wdBackward)
+            If p > -1 Then tmp.Start = p '-1 not found
+            tmp = App.ActiveDocument.OMaths.Add(tmp)
+            tmp.OMaths(1).BuildUp()
+            tmp.OMaths(1).Type = WdOMathType.wdOMathInline
+            OMaths_to_TextMath(tmp.OMaths)
+            r.Start = tmp.End 'move to end of altered section to prevent inf loop.
+        Loop
+
+    End Sub
+
     Private Sub IncreaseMathInShapes(shp As Word.Shape)
 
-        On Error GoTo er
+        If Not DEBUG Then On Error GoTo er
 
         If shp.Type = Office.MsoShapeType.msoGroup Then
-            ' recurse into groups
-            For i = 1 To shp.GroupItems.Count
+            ' recurse into groups (Capped to avoid crashing. OOM?)
+            For i = 1 To Math.Min(shp.GroupItems.Count, 80)
                 IncreaseMathInShapes(shp.GroupItems(i))
             Next i
 

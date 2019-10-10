@@ -1,7 +1,5 @@
 ﻿Module PasteFromPDF
 
-    'TODO buttons and test PasteOCR, FixOCR and FixOCR_Ligatures
-
     Sub PasteOCR()
         Dim objUndo As Word.UndoRecord
 
