@@ -1,4 +1,6 @@
-﻿Module Maths
+﻿Imports Microsoft.Office.Interop.Word
+
+Module Maths
 
     Sub PrepBrailleMaths()
         ' Fix up Equation Editor Braille Math ready for converting to MathType for Brailling.
@@ -88,6 +90,7 @@ er:
         End Select
     End Sub
 
+
     Private Sub PrepLargePrintMaths_int(r As Word.Range)
 
         On Error GoTo er
@@ -97,6 +100,7 @@ er:
         App.System.Cursor = Word.WdCursorType.wdCursorWait
 
         If r.Text IsNot Nothing Then
+            ConvertTextFractionToMath(r)
             OMaths_to_TextMath(r.OMaths) ' Convert Normal math to Text (to change font)
             ReplaceWrongDash(r) ' Replace hyphens with minus (do after converting to textmath)
             ReplaceXwithMultiply(r)
@@ -245,6 +249,30 @@ er:
             r.Find.Replacement.Font.Superscript = True
             r.Find.Execute(Replace:=Word.WdReplace.wdReplaceAll)
         Next i
+
+    End Sub
+
+    Private Sub ConvertTextFractionToMath(r As Range)
+        ' Find / surrounded by digits and expand to nearest space or newline
+        ' Replace with OMath stacked fraction
+
+        r.Find.Text = "^#/^#"
+        r.Find.MatchWildcards = False
+        Dim tmp As Word.Range
+        Dim p As Integer
+
+        Do While r.Find.Execute(Forward:=True) = True
+            tmp = r
+            p = tmp.MoveEndUntil(" " & vbCrLf)
+            If p > tmp.End Then tmp.End = p '-1 not found & sanity check 
+            p = tmp.MoveStartUntil(" " & vbCrLf, Word.WdConstants.wdBackward)
+            If p > -1 Then tmp.Start = p '-1 not found
+            tmp = App.ActiveDocument.OMaths.Add(tmp)
+            tmp.OMaths(1).BuildUp()
+            tmp.OMaths(1).Type = WdOMathType.wdOMathInline
+            OMaths_to_TextMath(tmp.OMaths)
+            r.Start = tmp.End 'move to end of altered section to prevent inf loop.
+        Loop
 
     End Sub
 
