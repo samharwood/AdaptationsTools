@@ -143,6 +143,7 @@ er:
 
         For Each f In fns
 
+
             Select Case f.Type
                 Case Word.WdOMathFunctionType.wdOMathFunctionDelim 'brackets
                     For i = 1 To f.Delim.E.Count
@@ -347,6 +348,7 @@ er:
 
             o.ConvertToNormalText()
 
+
             o.Range.Font.Name = App.ActiveDocument.Styles("Normal").Font.Name
             o.Range.Font.Bold = App.ActiveDocument.Styles("Normal").Font.Bold
             o.Range.Font.Italic = App.ActiveDocument.Styles("Normal").Font.Italic
@@ -418,6 +420,8 @@ er:
         Select Case Err.Number
             Case 91 'no object - first letter has no previous letter object
                 Resume Next 'insert space anyway (simplest fix, but inserts an unnecessary space!)
+            Case -2147467259 'COM error when selection includes empty OMath
+                Err.Raise(Err.Number, Err.Source, "Error: Selection includes an empty Equation")
             Case Else
                 Err.Raise(Err.Number, Err.Source, Err.Description)
         End Select
