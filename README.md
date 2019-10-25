@@ -2,7 +2,6 @@
 Add-in for Microsoft Word with a collection of useful tools to assist with the preparation of adapted documents into Large Print or Braille
 
 ## **[Download AdaptationsTools Add-in](https://harwooduk.blob.core.windows.net/adaptationstools/AdaptationsTools.zip)**
-### **[Download Latest development version](https://harwooduk.blob.core.windows.net/adaptationstools/AdaptationsToolsDev.zip)**
 
 ### Install:
 Extract the zip folder and double-click the *AdaptationsTools.vsto* file to install the Add-in. 
